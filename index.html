@@ -4,11 +4,11 @@
 		<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-				<!-- PLACEHOLDER : Modifie le titre avec ton identité -->
+				<!-- PLACEHOLDER : Adapte à ton identité -->
 				<title>Alexandre Dupont | Développeur d'Applications - BTS SIO SLAM</title>
-				<meta name="description" content="Portfolio de développeur junior en BTS SIO SLAM : réalisations logicielles, compétences backend/frontend et veille technologique.">
+				<meta name="description" content="Portfolio de développeur junior BTS SIO SLAM : réalisations logicielles, compétences, parcours complet et veille technologique.">
 
-					<!-- Polices Google Fonts : Inter pour la lisibilité et JetBrains Mono pour le code -->
+					<!-- Polices Google Fonts : Inter & JetBrains Mono -->
 					<link rel="preconnect" href="https://fonts.googleapis.com">
 						<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 							<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,642 +17,651 @@
 </head>
 	<body>
 
-		<!-- ================================================================= -->
-		<!-- 1. HEADER & BARRE DE NAVIGATION FIXE                             -->
-		<!-- ================================================================= -->
-		<header class="header" id="header">
-			<div class="container nav-container">
-				<!-- Logo texte / Identité -->
-				<a href="#hero" class="nav-brand">
-					<!-- PLACEHOLDER : Tes initiales ou prénom -->
-					<span class="brand-name">AD</span>
-					<span class="brand-dot">.dev</span>
-				</a>
+		<!-- Lueur suiveuse de souris (effet interactif discret) -->
+		<div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
-				<!-- Bouton Menu Burger (Mobile) -->
-				<button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
-					<span class="burger-bar"></span>
-					<span class="burger-bar"></span>
-					<span class="burger-bar"></span>
-				</button>
+		<!-- Bouton burger d'ouverture de la barre latérale sur mobile -->
+		<button class="sidebar-toggle" id="sidebar-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+			<span class="burger-bar"></span>
+			<span class="burger-bar"></span>
+			<span class="burger-bar"></span>
+		</button>
 
-				<!-- Liens de navigation avec ancres -->
-				<nav class="nav-menu" id="nav-menu">
-					<ul class="nav-list">
-						<li class="nav-item">
-							<a href="#about" class="nav-link">À propos</a>
+		<!-- ================================================================= -->
+		<!-- BARRE LATÉRALE FIXE (GAUCHE)                                      -->
+		<!-- ================================================================= -->
+		<aside class="sidebar" id="sidebar">
+			<div class="sidebar-inner">
+
+				<!-- Identité / Logo compact -->
+				<div class="sidebar-brand">
+					<!-- PLACEHOLDER : Initiales ou logo texte -->
+					<a href="#hero" class="brand-link">
+						<span class="brand-initials">AD</span>
+						<span class="brand-text">.dev</span>
+					</a>
+					<span class="brand-caption">BTS SIO SLAM</span>
+				</div>
+
+				<!-- Navigation avec fil conducteur et puce mobile de progression -->
+				<nav class="sidebar-nav" aria-label="Navigation principale">
+					<div class="nav-track" aria-hidden="true">
+						<div class="nav-indicator-dot" id="nav-indicator-dot"></div>
+					</div>
+
+					<ul class="sidebar-menu" id="sidebar-menu">
+						<li class="menu-item">
+							<a href="#hero" class="menu-link active">Accueil</a>
 						</li>
-						<li class="nav-item">
-							<a href="#skills" class="nav-link">Compétences</a>
+						<li class="menu-item">
+							<a href="#about" class="menu-link">À propos</a>
 						</li>
-						<li class="nav-item">
-							<a href="#projects" class="nav-link">Projets E4</a>
+						<li class="menu-item">
+							<a href="#parcours" class="menu-link">Parcours</a>
 						</li>
-						<li class="nav-item">
-							<a href="#veille" class="nav-link">Veille</a>
+						<li class="menu-item">
+							<a href="#skills" class="menu-link">Compétences</a>
 						</li>
-						<li class="nav-item">
-							<a href="#contact" class="nav-link">Contact</a>
+						<li class="menu-item">
+							<a href="#projects" class="menu-link">Projets E4</a>
+						</li>
+						<li class="menu-item">
+							<a href="#veille" class="menu-link">Veille E5</a>
+						</li>
+						<li class="menu-item">
+							<a href="#contact" class="menu-link">Contact</a>
 						</li>
 					</ul>
-
-					<!-- Action directe : Téléchargement de CV -->
-					<!-- PLACEHOLDER : Place ton fichier CV dans un dossier /assets/ et renseigne le chemin -->
-					<a href="./assets/CV_Alexandre_Dupont.pdf" class="btn btn-sm btn-outline nav-cta" target="_blank" rel="noopener noreferrer">
-						<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-							<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-							<polyline points="7 10 12 15 17 10"></polyline>
-							<line x1="12" y1="15" x2="12" y2="3"></line>
-						</svg>
-						Mon CV (PDF)
-					</a>
 				</nav>
+
+				<!-- Pied de la barre latérale : Réseaux rapides -->
+				<div class="sidebar-footer">
+					<div class="sidebar-socials">
+						<!-- PLACEHOLDER : Liens personnels -->
+						<a href="https://github.com/ton-profil" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
+							<svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+							</svg>
+						</a>
+						<a href="https://linkedin.com/in/ton-profil" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
+							<svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+							</svg>
+						</a>
+					</div>
+				</div>
+
 			</div>
-		</header>
+		</aside>
 
-		<main>
-			<!-- =============================================================== -->
-			<!-- 2. SECTION HERO (ACCUEIL)                                       -->
-			<!-- =============================================================== -->
-			<section class="section hero" id="hero">
-				<div class="container hero-container">
+		<!-- ================================================================= -->
+		<!-- ZONE DE CONTENU PRINCIPAL                                         -->
+		<!-- ================================================================= -->
+		<div class="content-wrapper">
+			<main>
 
-					<!-- Statut professionnel actuel -->
-					<div class="hero-status">
-						<!-- PLACEHOLDER : Ajuste ton statut (alternance, stage, poursuite d'études) -->
-						<span class="status-pulse"></span>
-						<span>BTS SIO option SLAM • Recherche d'alternance Bac+3</span>
-					</div>
+				<!-- 1. SECTION ACCUEIL / PROFIL -->
+				<section class="section section-hero" id="hero">
+					<div class="container-inner">
 
-					<!-- Titre principal direct et explicite -->
-					<!-- PLACEHOLDER : Ton Prénom et Nom -->
-					<h1 class="hero-title">Alexandre Dupont</h1>
-					<p class="hero-subtitle">Concepteur & Développeur d'Applications Métiers</p>
-
-					<!-- Courte bio professionnelle -->
-					<!-- PLACEHOLDER : Adapte à tes affinités (backend, fullstack, orienté objet) -->
-					<p class="hero-description">
-						Étudiant en 2ème année de BTS SIO SLAM, je conçois et maintiens des applications logicielles robustes, de la modélisation de base de données à la livraison d'API et d'interfaces web. Rigoureux et curieux, je privilégie l'architecture propre, le respect des standards et l'automatisation.
-					</p>
-
-					<!-- Boutons d'action et réseaux -->
-					<div class="hero-actions">
-						<a href="#projects" class="btn btn-primary">Explorer mes réalisations</a>
-						<a href="#contact" class="btn btn-secondary">Me contacter</a>
-
-						<div class="hero-socials">
-							<!-- PLACEHOLDER : Liens vers tes profils réels -->
-							<a href="https://github.com/ton-profil" target="_blank" rel="noopener noreferrer" class="social-link" title="Dépôt GitHub">
-								<svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-									<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-								</svg>
-							</a>
-							<a href="https://linkedin.com/in/ton-profil" target="_blank" rel="noopener noreferrer" class="social-link" title="Profil LinkedIn">
-								<svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-									<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-								</svg>
-							</a>
-						</div>
-					</div>
-
-				</div>
-			</section>
-
-			<!-- =============================================================== -->
-			<!-- 3. SECTION À PROPOS & PARCOURS                                  -->
-			<!-- =============================================================== -->
-			<section class="section" id="about">
-				<div class="container">
-
-					<div class="section-header">
-						<span class="section-tag">// 01. Profil</span>
-						<h2 class="section-title">À propos & Parcours</h2>
-					</div>
-
-					<div class="about-grid">
-						<!-- Présentation textuelle -->
-						<div class="about-text">
-							<!-- PLACEHOLDER : Adapte avec ton parcours propre -->
-							<p>
-								Issu d'une formation initiale scientifique/technologique, j'ai choisi le <strong>BTS SIO (Services Informatiques aux Organisations) option SLAM</strong> afin d'acquérir une méthode professionnelle dans le génie logiciel.
-							</p>
-							<p>
-								Ma démarche repose sur une approche complète du cycle de développement : de l'analyse du besoin client (modélisation de données Merise / MCD) jusqu'au déploiement et au contrôle qualité (tests, versioning Git). Je m'intéresse tout particulièrement aux architectures applicatives modulaires (MVC, micro-services) et à la sécurité des flux de données.
-							</p>
-
-							<div class="about-keypoints">
-								<div class="keypoint-item">
-									<span class="keypoint-title">Spécialité visée</span>
-									<span class="keypoint-value">Développement Backend & API</span>
-								</div>
-								<div class="keypoint-item">
-									<span class="keypoint-title">Localisation</span>
-									<span class="keypoint-value">Hauts-de-France / Mobilité nationale</span>
-								</div>
-								<div class="keypoint-item">
-									<span class="keypoint-title">Rythme recherché</span>
-									<span class="keypoint-value">Alternance (3j entreprise / 2j école)</span>
-								</div>
-							</div>
+						<div class="hero-status">
+							<span class="status-indicator"></span>
+							<span>BTS SIO SLAM • Développeur Logiciel Junior</span>
 						</div>
 
-						<!-- Chronologie / Timeline synthétique -->
-						<div class="about-timeline">
+						<!-- PLACEHOLDER : Ton Identité -->
+						<h1 class="hero-title">
+							Alexandre <span class="gradient-text">Dupont</span>
+						</h1>
+						<p class="hero-role">Conception logicielle, APIs sécurisées & architectures MVC</p>
 
-							<!-- Étape 1 : En cours -->
-							<div class="timeline-item">
-								<div class="timeline-dot"></div>
-								<div class="timeline-content">
-									<span class="timeline-date">2024 - 2026</span>
-									<h3 class="timeline-title">BTS SIO option SLAM</h3>
-									<p class="timeline-place">Lycée Gaston Berger — Lille</p>
-									<p class="timeline-desc">Conception orientée objet, modélisation relationnelle SQL, développement web MVC (PHP/Symfony), applications clientes (C# .NET) et cybersécurité applicative.</p>
-								</div>
-							</div>
-
-							<!-- Étape 2 : Stage BTS -->
-							<div class="timeline-item">
-								<div class="timeline-dot"></div>
-								<div class="timeline-content">
-									<span class="timeline-date">Mai - Juin 2025 (Stage de 6 semaines)</span>
-									<!-- PLACEHOLDER : Intitulé et entreprise de ton stage -->
-									<h3 class="timeline-title">Développeur d'Applications Web Stagiaire</h3>
-									<p class="timeline-place">Entreprise Digitale SAS — Roubaix</p>
-									<p class="timeline-desc">Refonte d'un module de facturation interne. Création de contrôleurs et formulaires sous Symfony, requêtes Doctrine optimisées et intégration responsive.</p>
-								</div>
-							</div>
-
-							<!-- Étape 3 : Diplôme précédent -->
-							<div class="timeline-item">
-								<div class="timeline-dot"></div>
-								<div class="timeline-content">
-									<span class="timeline-date">2024</span>
-									<!-- PLACEHOLDER : Ton Baccalauréat réel -->
-									<h3 class="timeline-title">Baccalauréat Général (NSI & Mathématiques)</h3>
-									<p class="timeline-place">Lycée Faidherbe — Lille</p>
-									<p class="timeline-desc">Mention Bien. Initiation à l'algorithmie, structures de données fondamentales en Python et bases de la programmation web.</p>
-								</div>
-							</div>
-
-						</div>
-					</div>
-
-				</div>
-			</section>
-
-			<!-- =============================================================== -->
-			<!-- 4. SECTION COMPÉTENCES TECHNIQUES                               -->
-			<!-- =============================================================== -->
-			<section class="section section-dark" id="skills">
-				<div class="container">
-
-					<div class="section-header">
-						<span class="section-tag">// 02. Boîte à outils</span>
-						<h2 class="section-title">Compétences Techniques</h2>
-					</div>
-
-					<div class="skills-grid">
-
-						<!-- Bloc 1 : Langages & Frameworks -->
-						<div class="skill-card">
-							<div class="skill-card-header">
-								<svg class="icon icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-									<polyline points="16 18 22 12 16 6"></polyline>
-									<polyline points="8 6 2 12 8 18"></polyline>
-								</svg>
-								<h3 class="skill-card-title">Langages & Frameworks</h3>
-							</div>
-							<p class="skill-card-desc">Technologies utilisées en cours et lors de mes développements personnels.</p>
-							<ul class="skill-list">
-								<li>
-									<span>PHP 8 / Symfony</span>
-									<span class="skill-level">Avancé</span>
-								</li>
-								<li>
-									<span>C# / .NET (WinForms, WPF)</span>
-									<span class="skill-level">Intermédiaire</span>
-								</li>
-								<li>
-									<span>SQL (MySQL, PostgreSQL)</span>
-									<span class="skill-level">Avancé</span>
-								</li>
-								<li>
-									<span>JavaScript (ES6+) / TypeScript</span>
-									<span class="skill-level">Intermédiaire</span>
-								</li>
-								<li>
-									<span>Python</span>
-									<span class="skill-level">Notions</span>
-								</li>
-								<li>
-									<span>HTML5 / CSS3 (Sass)</span>
-									<span class="skill-level">Avancé</span>
-								</li>
-							</ul>
-						</div>
-
-						<!-- Bloc 2 : Outils & Environnements -->
-						<div class="skill-card">
-							<div class="skill-card-header">
-								<svg class="icon icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-									<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-									<line x1="8" y1="21" x2="16" y2="21"></line>
-									<line x1="12" y1="17" x2="12" y2="21"></line>
-								</svg>
-								<h3 class="skill-card-title">Outils & Environnements</h3>
-							</div>
-							<p class="skill-card-desc">Environnement de travail et gestion du cycle de vie du code.</p>
-							<ul class="skill-list">
-								<li>
-									<span>Git / GitHub (GitFlow, PRs)</span>
-									<span class="skill-level">Régulier</span>
-								</li>
-								<li>
-									<span>Docker (Conteneurisation LAMP)</span>
-									<span class="skill-level">Pratique</span>
-								</li>
-								<li>
-									<span>Linux / Bash (Debian, Ubuntu)</span>
-									<span class="skill-level">Quotidien</span>
-								</li>
-								<li>
-									<span>VS Code / JetBrains PhpStorm</span>
-									<span class="skill-level">Quotidien</span>
-								</li>
-								<li>
-									<span>Postman (Tests d'API)</span>
-									<span class="skill-level">Régulier</span>
-								</li>
-								<li>
-									<span>Composer / npm</span>
-									<span class="skill-level">Régulier</span>
-								</li>
-							</ul>
-						</div>
-
-						<!-- Bloc 3 : Méthodes & Modélisation -->
-						<div class="skill-card">
-							<div class="skill-card-header">
-								<svg class="icon icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-									<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-									<polyline points="14 2 14 8 20 8"></polyline>
-									<line x1="16" y1="13" x2="8" y2="13"></line>
-									<line x1="16" y1="17" x2="8" y2="17"></line>
-									<polyline points="10 9 9 9 8 9"></polyline>
-								</svg>
-								<h3 class="skill-card-title">Méthodes & Analyse</h3>
-							</div>
-							<p class="skill-card-desc">Rigueur conceptuelle et organisation de projet selon les critères BTS.</p>
-							<ul class="skill-list">
-								<li>
-									<span>Merise (MCD, MLD, MPD, Looping)</span>
-									<span class="skill-level">Maîtrisé</span>
-								</li>
-								<li>
-									<span>Diagrammes UML (Cas d'utilisations, Classes)</span>
-									<span class="skill-level">Maîtrisé</span>
-								</li>
-								<li>
-									<span>Méthode Agile Scrum (Sprints, Trello)</span>
-									<span class="skill-level">Appliqué</span>
-								</li>
-								<li>
-									<span>Tests unitaires (PHPUnit)</span>
-									<span class="skill-level">Notions</span>
-								</li>
-								<li>
-									<span>Bonnes pratiques OWASP (Sécurité BDD)</span>
-									<span class="skill-level">Appliqué</span>
-								</li>
-							</ul>
-						</div>
-
-					</div>
-
-				</div>
-			</section>
-
-			<!-- =============================================================== -->
-			<!-- 5. SECTION PROJETS & RÉALISATIONS (ÉPREUVE E4)                  -->
-			<!-- =============================================================== -->
-			<section class="section" id="projects">
-				<div class="container">
-
-					<div class="section-header">
-						<span class="section-tag">// 03. Portfolio BTS SIO</span>
-						<h2 class="section-title">Réalisations & Projets E4</h2>
-						<p class="section-subtitle">Sélection de projets d'école, de stage et personnels illustrant les compétences du bloc 2 du référentiel SLAM.</p>
-					</div>
-
-					<div class="projects-grid">
-
-						<!-- Projet 1 : Web PHP MVC (Typique E4) -->
-						<!-- PLACEHOLDER : Remplace les données par ton projet réel -->
-						<article class="project-card">
-							<div class="project-card-badge">Projet Académique BTS</div>
-							<h3 class="project-title">GestStock MVC — Gestion de Matériel Médical</h3>
-							<p class="project-desc">
-								Application web de gestion de stocks d'équipements pour un laboratoire fictif. Mise en place d'une architecture MVC personnalisée sans framework, authentification avec hashage (Bcrypt), gestion des sessions et droits (Admin / Préparateur), et exports PDF d'inventaire.
-							</p>
-
-							<div class="project-meta">
-								<span class="project-meta-label">Compétences E4 visées :</span>
-								<p class="project-meta-text">B2.1 Conception d'application • B2.2 Maintenance corrective • B2.3 Gestion des données</p>
-							</div>
-
-							<div class="project-techs">
-								<span class="tech-tag">PHP 8</span>
-								<span class="tech-tag">Architecture MVC</span>
-								<span class="tech-tag">MySQL</span>
-								<span class="tech-tag">PDO</span>
-								<span class="tech-tag">Bootstrap 5</span>
-							</div>
-
-							<div class="project-links">
-								<!-- PLACEHOLDER : Lien GitHub -->
-								<a href="https://github.com/ton-profil/geststock-mvc" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">
-									<svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-										<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-									</svg>
-									Code source
-								</a>
-								<!-- PLACEHOLDER : Lien Documentation / Fiche E4 -->
-								<a href="./assets/docs/Fiche_E4_GestStock.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-ghost">
-									Documentation E4 &rarr;
-								</a>
-							</div>
-						</article>
-
-						<!-- Projet 2 : Client Lourd C# (Typique E4) -->
-						<!-- PLACEHOLDER : Remplace les données par ton projet réel -->
-						<article class="project-card">
-							<div class="project-card-badge">Projet Stage / Épreuve E4</div>
-							<h3 class="project-title">MediDesk — Gestionnaire de Consultations</h3>
-							<p class="project-desc">
-								Application lourde (Desktop Windows) permettant aux praticiens de planifier les rendez-vous, d'éditer les ordonnances et d'archiver les dossiers patients. Connexion centralisée à un serveur SQL via Entity Framework, gestion des transactions et génération de bilans chiffrés.
-							</p>
-
-							<div class="project-meta">
-								<span class="project-meta-label">Compétences E4 visées :</span>
-								<p class="project-meta-text">B2.1 Programmation événementielle • B2.3 Intégrité référentielle • Modélisation UML</p>
-							</div>
-
-							<div class="project-techs">
-								<span class="tech-tag">C# .NET</span>
-								<span class="tech-tag">WPF / XAML</span>
-								<span class="tech-tag">Entity Framework</span>
-								<span class="tech-tag">SQL Server</span>
-								<span class="tech-tag">LINQ</span>
-							</div>
-
-							<div class="project-links">
-								<a href="https://github.com/ton-profil/medidesk-csharp" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">
-									<svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-										<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-									</svg>
-									Code source
-								</a>
-								<a href="./assets/docs/Fiche_E4_MediDesk.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-ghost">
-									Documentation E4 &rarr;
-								</a>
-							</div>
-						</article>
-
-						<!-- Projet 3 : API REST / Web Moderne -->
-						<!-- PLACEHOLDER : Remplace les données par ton projet réel -->
-						<article class="project-card">
-							<div class="project-card-badge">Projet Personnel & Approfondissement</div>
-							<h3 class="project-title">SupportHub API — Système de Ticketing</h3>
-							<p class="project-desc">
-								Conception d'une API RESTful sécurisée destinée à centraliser les tickets de support technique. Sécurisation des endpoints via JWT (JSON Web Tokens), validation stricte des DTOs, pagination des résultats et documentation interactive automatisée via OpenAPI / Swagger.
-							</p>
-
-							<div class="project-meta">
-								<span class="project-meta-label">Compétences E4 visées :</span>
-								<p class="project-meta-text">B2.1 Développement de composants d'accès • Tests unitaires • Sécurité applicative</p>
-							</div>
-
-							<div class="project-techs">
-								<span class="tech-tag">Symfony 7</span>
-								<span class="tech-tag">API Platform</span>
-								<span class="tech-tag">JWT Auth</span>
-								<span class="tech-tag">PostgreSQL</span>
-								<span class="tech-tag">Swagger UI</span>
-							</div>
-
-							<div class="project-links">
-								<a href="https://github.com/ton-profil/supporthub-api" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">
-									<svg class="icon" viewBox="0 0 24 24" fill="currentColor">
-										<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-									</svg>
-									Code source
-								</a>
-								<a href="https://ton-api-demo.fr/docs" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-ghost">
-									Consulter la doc Swagger &rarr;
-								</a>
-							</div>
-						</article>
-
-					</div>
-
-				</div>
-			</section>
-
-			<!-- =============================================================== -->
-			<!-- 6. SECTION VEILLE TECHNOLOGIQUE (ÉPREUVE E5)                    -->
-			<!-- =============================================================== -->
-			<section class="section section-dark" id="veille">
-				<div class="container">
-
-					<div class="section-header">
-						<span class="section-tag">// 04. Épreuve E5</span>
-						<h2 class="section-title">Veille Technologique</h2>
-						<p class="section-subtitle">Démarche méthodique de surveillance et d'évaluation des innovations dans le domaine du génie logiciel.</p>
-					</div>
-
-					<!-- Encadré du thème de veille -->
-					<!-- PLACEHOLDER : Remplace par ton sujet officiel de veille SIO -->
-					<div class="veille-summary-box">
-						<div class="veille-summary-header">
-							<span class="badge-accent">Sujet d'étude retenu</span>
-							<span class="veille-period">Cycle 2024 - 2026</span>
-						</div>
-						<h3 class="veille-topic">La Sécurité des Architectures d'API REST : De OAuth 2.1 à la Prévention des Vulnérabilités OWASP API Top 10</h3>
-						<p class="veille-intro">
-							Face à la multiplication des architectures distribuées (micro-services et applications découplées), la sécurisation des endpoints et des échanges de données machine-to-machine est devenue un enjeu critique. Mon étude porte sur les protocoles d'autorisation récents, l'atténuation des injections et la traçabilité des failles dans le cycle CI/CD.
+						<p class="hero-intro">
+							Passionné par la modélisation rigoureuse et la production de code maintenable, je développe des solutions métiers alliant bases de données optimisées et interfaces fluides.
 						</p>
 
-						<!-- Outils de la veille -->
-						<div class="veille-tools">
-							<span class="veille-tools-title">Outils & Canaux utilisés :</span>
-							<div class="tools-tags">
-								<span class="tool-tag">Feedly (Flux RSS ciblés)</span>
-								<span class="tool-tag">Google Alerts</span>
-								<span class="tool-tag">GitHub Trending (PHP / Sec)</span>
-								<span class="tool-tag">The Hacker News</span>
-								<span class="tool-tag">Newsletter OWASP</span>
-								<span class="tool-tag">Dev.to & Reddit (r/webdev)</span>
-							</div>
+						<!-- Raccourcis obligatoires : CV, Projets, Contact -->
+						<div class="hero-shortcuts">
+							<!-- PLACEHOLDER : Chemin réel vers ton PDF dans assets/ -->
+							<a href="./assets/CV_Alexandre_Dupont.pdf" class="btn btn-accent" target="_blank" rel="noopener noreferrer">
+								<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+									<polyline points="7 10 12 15 17 10"></polyline>
+									<line x1="12" y1="15" x2="12" y2="3"></line>
+								</svg>
+								Télécharger mon CV
+							</a>
+							<a href="#projects" class="btn btn-secondary">
+								<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+									<polyline points="2 17 12 22 22 17"></polyline>
+									<polyline points="2 12 12 17 22 12"></polyline>
+								</svg>
+								Voir les projets
+							</a>
+							<a href="#contact" class="btn btn-subtle">
+								<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+									<polyline points="22,6 12,13 2,6"></polyline>
+								</svg>
+								Me contacter
+							</a>
 						</div>
-					</div>
-
-					<!-- Synthèses d'articles récents -->
-					<div class="veille-articles-grid">
-
-						<!-- Article 1 -->
-						<!-- PLACEHOLDER : Tes fiches de lecture réelles -->
-						<article class="article-card">
-							<div class="article-date">Janvier 2026</div>
-							<h4 class="article-title">Adoption de OAuth 2.1 : Simplification et Abandon Définitif de l'Implicit Grant</h4>
-							<p class="article-summary">
-								Analyse des simplifications apportées par la spécification OAuth 2.1. Obligation systématique du standard PKCE (Proof Key for Code Exchange) pour les clients publics et suppression des flux vulnérables aux interceptions de tokens.
-							</p>
-							<div class="article-footer">
-								<span class="article-impact">Impact SLAM : Conception des contrôleurs d'authentification et gestion des tokens en Single Page Apps.</span>
-							</div>
-						</article>
-
-						<!-- Article 2 -->
-						<!-- PLACEHOLDER : Tes fiches de lecture réelles -->
-						<article class="article-card">
-							<div class="article-date">Novembre 2025</div>
-							<h4 class="article-title">BOLA (Broken Object Level Authorization) : Risque n°1 selon le classement OWASP API</h4>
-							<p class="article-summary">
-								Étude approfondie de la vulnérabilité BOLA consistant à manipuler les identifiants d'objets dans les URI. Analyse des solutions correctives : validation granulaire des droits d'accès au niveau de la couche domaine (Doctrine / Entity Framework) plutôt qu'au simple niveau de la route.
-							</p>
-							<div class="article-footer">
-								<span class="article-impact">Impact SLAM : Renforcement systématique des Voters Symfony et filtres LINQ.</span>
-							</div>
-						</article>
-
-						<!-- Article 3 -->
-						<!-- PLACEHOLDER : Tes fiches de lecture réelles -->
-						<article class="article-card">
-							<div class="article-date">Septembre 2025</div>
-							<h4 class="article-title">L'essor du Rate-Limiting adaptatif pour parer le Credential Stuffing</h4>
-							<p class="article-summary">
-								Mise en œuvre de règles de limitation de requêtes basées sur Redis. Différenciation intelligente des clients légitimes et des attaques par force brute distribuée sans dégrader l'expérience utilisateur légitime.
-							</p>
-							<div class="article-footer">
-								<span class="article-impact">Impact SLAM : Configuration de middlewares HTTP et gestion du cache applicatif.</span>
-							</div>
-						</article>
 
 					</div>
+				</section>
 
-				</div>
-			</section>
+				<!-- 2. SECTION À PROPOS (AVEC RECHERCHE DE STAGE EXPLICITE) -->
+				<section class="section section-about" id="about">
+					<div class="container-inner">
 
-			<!-- =============================================================== -->
-			<!-- 7. SECTION CONTACT                                              -->
-			<!-- =============================================================== -->
-			<section class="section" id="contact">
-				<div class="container">
+						<div class="section-heading">
+							<span class="section-tag">// 01. Profil</span>
+							<h2 class="section-title">À propos de moi</h2>
+						</div>
 
-					<div class="section-header">
-						<span class="section-tag">// 05. Me joindre</span>
-						<h2 class="section-title">Contact & Disponibilités</h2>
-						<p class="section-subtitle">Vous recherchez un profil rigoureux pour une alternance ou une mission de développement ? Échangeons.</p>
-					</div>
+						<div class="about-content-box">
+							<div class="about-text-column">
+								<p>
+									Actuellement en cursus de <strong>BTS SIO (option SLAM)</strong>, je concentre mes compétences sur la conception technique et le cycle de vie applicatif : analyse du domaine métier (Merise/UML), écriture de requêtes relationnelles maîtrisées et modularisation objet.
+								</p>
+								<p>
+									Mon approche met l'accent sur la robustesse du backend, la clarté du refactoring et le respect rigoureux des conventions d'équipe (contrôle de version Git, tests unitaires et intégration continue).
+								</p>
+							</div>
 
-					<div class="contact-grid">
-
-						<!-- Coordonnées directes -->
-						<div class="contact-info">
-							<h3 class="contact-info-title">Restons en contact</h3>
-							<p class="contact-info-text">
-								N'hésitez pas à me contacter directement par e-mail ou via mon profil LinkedIn pour toute question technique ou opportunité professionnelle.
-							</p>
-
-							<div class="contact-methods">
-
-								<div class="contact-method-item">
-									<svg class="icon icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-										<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-										<polyline points="22,6 12,13 2,6"></polyline>
-									</svg>
-									<div>
-										<span class="method-label">E-mail professionnel</span>
-										<!-- PLACEHOLDER : Ton e-mail -->
-										<a href="mailto:alexandre.dupont.pro@email.fr" class="method-value">alexandre.dupont.pro@email.fr</a>
-									</div>
+							<!-- Bloc officiel de recherche de stage -->
+							<div class="stage-alert-card">
+								<div class="stage-alert-header">
+									<span class="badge-accent">Situation actuelle</span>
+									<span class="stage-badge-status">Disponible</span>
 								</div>
-
-								<div class="contact-method-item">
-									<svg class="icon icon-accent" viewBox="0 0 24 24" fill="currentColor">
-										<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-									</svg>
-									<div>
-										<span class="method-label">Réseau professionnel</span>
-										<!-- PLACEHOLDER : Ton URL LinkedIn -->
-										<a href="https://linkedin.com/in/ton-profil" target="_blank" rel="noopener noreferrer" class="method-value">linkedin.com/in/alexandre-dupont</a>
-									</div>
-								</div>
-
-								<div class="contact-method-item">
-									<svg class="icon icon-accent" viewBox="0 0 24 24" fill="currentColor">
-										<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-									</svg>
-									<div>
-										<span class="method-label">Dépôts & Code</span>
-										<!-- PLACEHOLDER : Ton URL GitHub -->
-										<a href="https://github.com/ton-profil" target="_blank" rel="noopener noreferrer" class="method-value">github.com/alexandre-dupont</a>
-									</div>
-								</div>
-
+								<!-- PLACEHOLDER : Adapte les dates, durée et zone géographique -->
+								<h3 class="stage-title">Recherche active de stage en développement</h3>
+								<p class="stage-details">
+									À la recherche d'un stage de fin de première année d'une durée de <strong>six à huit semaines</strong> (période de mai à juin), avec possibilité de poursuivre en contrat d'alternance pour la deuxième année.
+								</p>
+								<ul class="stage-specs">
+									<li>
+										<span class="spec-label">Objectif :</span> Intégration d'une équipe technique web (PHP/Symfony, C#/.NET ou JS/Node).
+									</li>
+									<li>
+										<span class="spec-label">Zone :</span> Métropole lilloise, télétravail partiel accepté.
+									</li>
+								</ul>
+								<a href="#contact" class="btn btn-sm btn-accent stage-cta">Proposer une opportunité &rarr;</a>
 							</div>
 						</div>
 
-						<!-- Formulaire de contact propre avec validation native -->
-						<!-- Note : Pour recevoir les mails sans backend, tu pourras relier l'action à https://formspree.io/f/ton_id -->
-						<form class="contact-form" id="contact-form" action="#" method="POST">
-							<div class="form-group">
-								<label for="name" class="form-label">Nom & Prénom</label>
-								<input type="text" id="name" name="name" class="form-input" placeholder="Ex: Jean Dupont" required="" autocomplete="name">
-            </div>
+					</div>
+				</section>
 
-							<div class="form-group">
-								<label for="email" class="form-label">Adresse e-mail</label>
-								<input type="email" id="email" name="email" class="form-input" placeholder="nom@entreprise.fr" required="" autocomplete="email">
-            </div>
+				<!-- 3. SECTION PARCOURS (SECTION DÉDIÉE ET ÉTENDUE) -->
+				<section class="section section-parcours" id="parcours">
+					<div class="container-inner">
 
-							<div class="form-group">
-								<label for="subject" class="form-label">Objet du message</label>
-								<input type="text" id="subject" name="subject" class="form-input" placeholder="Ex: Opportunité alternance / Échange projet" required="">
-            </div>
+						<div class="section-heading">
+							<span class="section-tag">// 02. Historique & Cursus</span>
+							<h2 class="section-title">Parcours & Formations</h2>
+							<p class="section-lead">Évolution académique, expériences techniques et certifications validées.</p>
+						</div>
 
-							<div class="form-group">
-								<label for="message" class="form-label">Message</label>
-								<textarea id="message" name="message" rows="5" class="form-input form-textarea" placeholder="Votre message..." required=""></textarea>
+						<!-- Chronologie spacieuse nécessitant un défilement complet -->
+						<div class="extended-timeline">
+
+							<!-- Étape 1 -->
+							<div class="timeline-row">
+								<div class="timeline-aside">
+									<span class="timeline-year">2024 — Présent</span>
+									<span class="timeline-type">Formation en cours</span>
+								</div>
+								<div class="timeline-marker">
+									<span class="marker-dot"></span>
+								</div>
+								<div class="timeline-body">
+									<h3 class="timeline-heading">BTS SIO — Option SLAM (Solutions Logicielles & Applications Métiers)</h3>
+									<h4 class="timeline-subheading">Lycée Gaston Berger — Lille</h4>
+									<p class="timeline-text">
+										Formation approfondie axée sur le génie logiciel d'entreprise :
+									</p>
+									<ul class="timeline-bullets">
+										<li>Modélisation de bases de données relationnelles complexes (MCD, MLD, normalisation 3FN sous MySQL et PostgreSQL).</li>
+										<li>Développement orienté objet en PHP et C# .NET selon le paradigme Modèle-Vue-Contrôleur (MVC).</li>
+										<li>Mise en œuvre des normes de sécurité applicative (authentification forte, prévention des injections SQL, contrôle CSRF).</li>
+										<li>Méthodologies agiles (Scrum) et organisation d'ateliers de professionnalisation en équipe.</li>
+									</ul>
+								</div>
 							</div>
 
-							<button type="submit" class="btn btn-primary btn-block">
-								Envoyer le message
-							</button>
-							<div class="form-feedback" id="form-feedback" aria-live="polite"></div>
-						</form>
+							<!-- Étape 2 -->
+							<div class="timeline-row">
+								<div class="timeline-aside">
+									<span class="timeline-year">2025</span>
+									<span class="timeline-type">Expérience pratique</span>
+								</div>
+								<div class="timeline-marker">
+									<span class="marker-dot"></span>
+								</div>
+								<div class="timeline-body">
+									<!-- PLACEHOLDER : Ajuste l'intitulé si tu as déjà une mission/stage passée -->
+									<h3 class="timeline-heading">Stage Développeur d'Applications Web</h3>
+									<h4 class="timeline-subheading">Agence Digitale / DSI d'Entreprise</h4>
+									<p class="timeline-text">
+										Immersion de six semaines au sein d'une équipe de production :
+									</p>
+									<ul class="timeline-bullets">
+										<li>Participation à la refonte d'un outil interne de ticketing sous framework MVC.</li>
+										<li>Création de requêtes SQL optimisées et génération d'états récapitulatifs automatisés.</li>
+										<li>Gestion collaborative des sources via GitLab (branches de fonctionnalités et code review).</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Étape 3 -->
+							<div class="timeline-row">
+								<div class="timeline-aside">
+									<span class="timeline-year">2024</span>
+									<span class="timeline-type">Certifications</span>
+								</div>
+								<div class="timeline-marker">
+									<span class="marker-dot"></span>
+								</div>
+								<div class="timeline-body">
+									<h3 class="timeline-heading">Certifications & Auto-formation continue</h3>
+									<h4 class="timeline-subheading">ANSSI & Plateformes techniques</h4>
+									<ul class="timeline-bullets">
+										<li>
+											<strong>SecNumAcadémie (ANSSI) :</strong> Validation des modules de sensibilisation à la cybersécurité et protection des systèmes.
+										</li>
+										<li>
+											<strong>Git & GitHub :</strong> Maîtrise des commandes avancées (rebase, stash, résolution de conflits).
+										</li>
+										<li>
+											<strong>SQL Fondamental :</strong> Approfondissement des jointures complexes, index et transactions ACID.
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Étape 4 -->
+							<div class="timeline-row">
+								<div class="timeline-aside">
+									<span class="timeline-year">2024</span>
+									<span class="timeline-type">Diplôme obtenu</span>
+								</div>
+								<div class="timeline-marker">
+									<span class="marker-dot"></span>
+								</div>
+								<div class="timeline-body">
+									<!-- PLACEHOLDER : Adapte à ton Baccalauréat réel -->
+									<h3 class="timeline-heading">Baccalauréat Général — Spécialités NSI & Mathématiques</h3>
+									<h4 class="timeline-subheading">Lycée Faidherbe — Lille</h4>
+									<p class="timeline-text">
+										Mention Bien. Apprentissage fondamental des structures de données (arbres, piles, dictionnaires), de la complexité algorithmique et initiation à l'environnement Linux et aux scripts Python.
+									</p>
+								</div>
+							</div>
+
+						</div>
 
 					</div>
+				</section>
 
+				<!-- 4. SECTION COMPÉTENCES TECHNIQUES -->
+				<section class="section section-skills" id="skills">
+					<div class="container-inner">
+
+						<div class="section-heading">
+							<span class="section-tag">// 03. Savoir-faire</span>
+							<h2 class="section-title">Compétences Techniques</h2>
+						</div>
+
+						<div class="skills-grid">
+
+							<div class="skill-panel">
+								<div class="panel-header">
+									<span class="panel-icon icon-yellow">&#9670;</span>
+									<h3 class="panel-title">Langages & Frameworks</h3>
+								</div>
+								<ul class="panel-list">
+									<li>
+										<span class="tech-name">PHP 8 / Symfony</span>
+										<span class="tech-rate">Avancé</span>
+									</li>
+									<li>
+										<span class="tech-name">C# / .NET (WinForms, WPF)</span>
+										<span class="tech-rate">Intermédiaire</span>
+									</li>
+									<li>
+										<span class="tech-name">SQL (MySQL, PostgreSQL)</span>
+										<span class="tech-rate">Avancé</span>
+									</li>
+									<li>
+										<span class="tech-name">JavaScript (ES6+)</span>
+										<span class="tech-rate">Intermédiaire</span>
+									</li>
+									<li>
+										<span class="tech-name">HTML5 / CSS3 moderne</span>
+										<span class="tech-rate">Avancé</span>
+									</li>
+									<li>
+										<span class="tech-name">Python</span>
+										<span class="tech-rate">Notions</span>
+									</li>
+								</ul>
+							</div>
+
+							<div class="skill-panel">
+								<div class="panel-header">
+									<span class="panel-icon icon-violet">&#9670;</span>
+									<h3 class="panel-title">Outils & Environnements</h3>
+								</div>
+								<ul class="panel-list">
+									<li>
+										<span class="tech-name">Git (GitFlow, PR, CI de base)</span>
+										<span class="tech-rate">Régulier</span>
+									</li>
+									<li>
+										<span class="tech-name">Docker (Environnements LAMP)</span>
+										<span class="tech-rate">Pratique</span>
+									</li>
+									<li>
+										<span class="tech-name">Linux / Bash (Debian, Ubuntu)</span>
+										<span class="tech-rate">Quotidien</span>
+									</li>
+									<li>
+										<span class="tech-name">VS Code / PhpStorm</span>
+										<span class="tech-rate">Quotidien</span>
+									</li>
+									<li>
+										<span class="tech-name">Postman (Recette API)</span>
+										<span class="tech-rate">Régulier</span>
+									</li>
+									<li>
+										<span class="tech-name">Composer & npm</span>
+										<span class="tech-rate">Régulier</span>
+									</li>
+								</ul>
+							</div>
+
+							<div class="skill-panel">
+								<div class="panel-header">
+									<span class="panel-icon icon-yellow">&#9670;</span>
+									<h3 class="panel-title">Méthodes & Analyse</h3>
+								</div>
+								<ul class="panel-list">
+									<li>
+										<span class="tech-name">Merise (MCD, MLD, MPD)</span>
+										<span class="tech-rate">Maîtrisé</span>
+									</li>
+									<li>
+										<span class="tech-name">Modélisation UML (Cas, Classes)</span>
+										<span class="tech-rate">Maîtrisé</span>
+									</li>
+									<li>
+										<span class="tech-name">Méthode Agile Scrum</span>
+										<span class="tech-rate">Appliqué</span>
+									</li>
+									<li>
+										<span class="tech-name">Tests unitaires (PHPUnit)</span>
+										<span class="tech-rate">Notions</span>
+									</li>
+									<li>
+										<span class="tech-name">Bonnes pratiques OWASP</span>
+										<span class="tech-rate">Appliqué</span>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+				</section>
+
+				<!-- 5. SECTION PROJETS & RÉALISATIONS (ÉPREUVE E4) -->
+				<section class="section section-projects" id="projects">
+					<div class="container-inner">
+
+						<div class="section-heading">
+							<span class="section-tag">// 04. Portfolio BTS</span>
+							<h2 class="section-title">Réalisations & Projets E4</h2>
+							<p class="section-lead">Projets scolaires et personnels répondant aux blocs de compétences SLAM.</p>
+						</div>
+
+						<div class="projects-grid">
+
+							<!-- Projet 1 -->
+							<article class="project-box">
+								<div class="box-top">
+									<span class="box-badge">Projet Académique</span>
+									<span class="box-type">Web MVC</span>
+								</div>
+								<h3 class="box-title">GestStock — Gestion de Stock & Inventaire</h3>
+								<p class="box-desc">
+									Application web de gestion des équipements d'un parc de laboratoire. Architecture MVC propre sans framework, contrôle d'accès par rôles (Admin/Magasinier), requêtes préparées avec PDO et génération de rapports PDF.
+								</p>
+
+								<div class="box-competences">
+									<span class="comp-label">Épreuve E4 :</span>
+									<span class="comp-text">Conception applicative • BDD relationnelle • Gestion des sessions</span>
+								</div>
+
+								<div class="box-tags">
+									<span class="tag">PHP 8</span>
+									<span class="tag">MVC</span>
+									<span class="tag">MySQL</span>
+									<span class="tag">Bootstrap</span>
+								</div>
+
+								<div class="box-actions">
+									<a href="https://github.com/ton-profil/geststock" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">Code GitHub</a>
+									<a href="./assets/docs/Fiche_E4_GestStock.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-link">Fiche E4 &rarr;</a>
+								</div>
+							</article>
+
+							<!-- Projet 2 -->
+							<article class="project-box">
+								<div class="box-top">
+									<span class="box-badge">Projet Stage / École</span>
+									<span class="box-type">Client Lourd</span>
+								</div>
+								<h3 class="box-title">MediDesk — Gestion de Consultations Médicales</h3>
+								<p class="box-desc">
+									Application cliente Windows permettant aux professionnels de santé de planifier les rendez-vous, d'enregistrer les diagnostics et de suivre l'historique de soins via Entity Framework.
+								</p>
+
+								<div class="box-competences">
+									<span class="comp-label">Épreuve E4 :</span>
+									<span class="comp-text">Programmation événementielle • Transactions SQL • Intégrité référentielle</span>
+								</div>
+
+								<div class="box-tags">
+									<span class="tag">C# .NET</span>
+									<span class="tag">WPF</span>
+									<span class="tag">Entity Framework</span>
+									<span class="tag">SQL Server</span>
+								</div>
+
+								<div class="box-actions">
+									<a href="https://github.com/ton-profil/medidesk" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">Code GitHub</a>
+									<a href="./assets/docs/Fiche_E4_MediDesk.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-link">Fiche E4 &rarr;</a>
+								</div>
+							</article>
+
+							<!-- Projet 3 -->
+							<article class="project-box">
+								<div class="box-top">
+									<span class="box-badge">Projet Personnel</span>
+									<span class="box-type">API REST</span>
+								</div>
+								<h3 class="box-title">SupportHub API — Plateforme de Ticketing</h3>
+								<p class="box-desc">
+									API RESTful documentée avec OpenAPI/Swagger pour la gestion collaborative de tickets. Authentification via JWT (JSON Web Tokens), validation stricte des payloads et filtres de recherche.
+								</p>
+
+								<div class="box-competences">
+									<span class="comp-label">Épreuve E4 :</span>
+									<span class="comp-text">Sécurisation des accès • Documentation technique • Architecture REST</span>
+								</div>
+
+								<div class="box-tags">
+									<span class="tag">Symfony 7</span>
+									<span class="tag">API Platform</span>
+									<span class="tag">JWT</span>
+									<span class="tag">PostgreSQL</span>
+								</div>
+
+								<div class="box-actions">
+									<a href="https://github.com/ton-profil/supporthub-api" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">Code GitHub</a>
+									<a href="https://ton-api-demo.fr/docs" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-link">Swagger UI &rarr;</a>
+								</div>
+							</article>
+
+						</div>
+
+					</div>
+				</section>
+
+				<!-- 6. SECTION VEILLE TECHNOLOGIQUE (ÉPREUVE E5) -->
+				<section class="section section-veille" id="veille">
+					<div class="container-inner">
+
+						<div class="section-heading">
+							<span class="section-tag">// 05. Épreuve E5</span>
+							<h2 class="section-title">Veille Technologique</h2>
+							<p class="section-lead">Méthodologie de surveillance continue axée sur l'ingénierie logicielle et la sécurité applicative.</p>
+						</div>
+
+						<div class="veille-hero-box">
+							<div class="veille-badge-line">
+								<span class="badge-accent">Sujet d'étude officiel</span>
+								<span class="veille-dates">2024 — 2026</span>
+							</div>
+							<h3 class="veille-title">Sécurisation des Architectures d'API REST : De OAuth 2.1 aux Bonnes Pratiques OWASP API</h3>
+							<p class="veille-desc">
+								Surveillance ciblée des vulnérabilités émergentes sur les services exposés (Broken Object Level Authorization, injections) et normalisation des flux d'authentification machine-to-machine.
+							</p>
+
+							<div class="veille-sources">
+								<span class="sources-title">Flux & Outils :</span>
+								<div class="sources-list">
+									<span class="source-item">Feedly (Flux RSS)</span>
+									<span class="source-item">Google Alerts</span>
+									<span class="source-item">GitHub Trending</span>
+									<span class="source-item">The Hacker News</span>
+									<span class="source-item">OWASP Top 10 API</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="articles-grid">
+							<article class="article-box">
+								<span class="article-date">Janvier 2026</span>
+								<h4 class="article-title">Évolution vers OAuth 2.1 : Fin définitive de l'Implicit Grant</h4>
+								<p class="article-text">
+									Suppression des modes de délégation non sécurisés et généralisation du protocole PKCE (Proof Key for Code Exchange) pour sécuriser les Single Page Apps et applications clientes lourdes.
+								</p>
+							</article>
+
+							<article class="article-box">
+								<span class="article-date">Novembre 2025</span>
+								<h4 class="article-title">BOLA : Diagnostic et prévention de la vulnérabilité n°1 des APIs</h4>
+								<p class="article-text">
+									Analyse des failles d'autorisation au niveau objet : nécessité d'appliquer des filtres d'accès en couche métier plutôt que de faire confiance aux identifiants transmis dans les URLs.
+								</p>
+							</article>
+
+							<article class="article-box">
+								<span class="article-date">Septembre 2025</span>
+								<h4 class="article-title">Rate-Limiting adaptatif avec Redis sur reverse proxy</h4>
+								<p class="article-text">
+									Étude des algorithmes de limitation de charge pour contrecarrer les attaques automatisées par déni de service et force brute sans dégrader l'expérience des utilisateurs réguliers.
+								</p>
+							</article>
+						</div>
+
+					</div>
+				</section>
+
+				<!-- 7. SECTION CONTACT & COORDONNÉES -->
+				<section class="section section-contact" id="contact">
+					<div class="container-inner">
+
+						<div class="section-heading">
+							<span class="section-tag">// 06. Me joindre</span>
+							<h2 class="section-title">Contact & Disponibilité</h2>
+							<p class="section-lead">Une question technique ou une opportunité de stage ? Envoyez-moi un message.</p>
+						</div>
+
+						<div class="contact-layout">
+
+							<div class="contact-details">
+								<h3 class="details-title">Échangeons sur votre projet</h3>
+								<p class="details-text">
+									Je réponds sous vingt-quatre heures à toute proposition de stage, d'alternance ou de projet logiciel.
+								</p>
+
+								<div class="contact-card">
+									<span class="card-label">Courriel professionnel</span>
+									<!-- PLACEHOLDER : Ton e-mail -->
+									<a href="mailto:alexandre.dupont.pro@email.fr" class="card-link">alexandre.dupont.pro@email.fr</a>
+								</div>
+
+								<div class="contact-card">
+									<span class="card-label">Profil LinkedIn</span>
+									<!-- PLACEHOLDER : Ton URL LinkedIn -->
+									<a href="https://linkedin.com/in/ton-profil" target="_blank" rel="noopener noreferrer" class="card-link">linkedin.com/in/alexandre-dupont</a>
+								</div>
+
+								<div class="contact-card">
+									<span class="card-label">Dépôt GitHub</span>
+									<!-- PLACEHOLDER : Ton URL GitHub -->
+									<a href="https://github.com/ton-profil" target="_blank" rel="noopener noreferrer" class="card-link">github.com/alexandre-dupont</a>
+								</div>
+							</div>
+
+							<!-- Formulaire de contact propre -->
+							<form class="clean-form" id="contact-form" action="#" method="POST">
+								<div class="form-row">
+									<label for="name" class="form-label">Nom & Prénom</label>
+									<input type="text" id="name" name="name" class="form-control" placeholder="Jean Dupont" required="">
+              </div>
+
+								<div class="form-row">
+									<label for="email" class="form-label">Adresse e-mail</label>
+									<input type="email" id="email" name="email" class="form-control" placeholder="jean.dupont@entreprise.fr" required="">
+              </div>
+
+								<div class="form-row">
+									<label for="subject" class="form-label">Sujet</label>
+									<input type="text" id="subject" name="subject" class="form-control" placeholder="Proposition de stage BTS SIO" required="">
+              </div>
+
+								<div class="form-row">
+									<label for="message" class="form-label">Message</label>
+									<textarea id="message" name="message" rows="5" class="form-control" placeholder="Détails de l'échange..." required=""></textarea>
+								</div>
+
+								<button type="submit" class="btn btn-accent btn-full">Envoyer le message</button>
+								<div class="form-alert" id="form-alert" aria-live="polite"></div>
+							</form>
+
+						</div>
+
+					</div>
+				</section>
+
+			</main>
+
+			<!-- FOOTER SIMPLE -->
+			<footer class="site-footer">
+				<div class="container-inner footer-flex">
+					<p>
+						&copy; <span id="current-year">2026</span> Alexandre Dupont — Candidat BTS SIO SLAM.
+					</p>
+					<p class="footer-sub">Site one-page natif • Sans dépendance externe</p>
 				</div>
-			</section>
-		</main>
-
-		<!-- ================================================================= -->
-		<!-- 8. FOOTER                                                         -->
-		<!-- ================================================================= -->
-		<footer class="footer">
-			<div class="container footer-container">
-				<p class="footer-copy">
-					<!-- PLACEHOLDER : Ton nom et année -->
-					&copy; <span id="current-year">2026</span> Alexandre Dupont — Candidat BTS SIO SLAM.
-				</p>
-				<p class="footer-note">
-					Conçu et développé sans framework CSS lourd • Code propre & sémantique
-				</p>
-				<a href="#hero" class="footer-back-top" title="Retour haut de page">Haut de page &uarr;</a>
-			</div>
-		</footer>
+			</footer>
+		</div>
 
 		<script src="script.js"></script>
 	</body>
