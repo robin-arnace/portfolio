@@ -1,17 +1,17 @@
 /**
  * script.js — Portfolio BTS SIO SLAM
  * 
- * Rôle : Logique native Vanilla JS
- * 1. Suivi de souris & feedback au clic (lueur réactive)
- * 2. Progression dynamique de la barre latérale (indicateur à puce mobile)
- * 3. Menu mobile burger
- * 4. Validation et retour utilisateur du formulaire
+ * Rôle :
+ * 1. Suivi de souris adouci & isolation de l'effet clic sur le bouton gauche
+ * 2. Positionnement dynamique de la puce de progression dans la barre flottante centrée
+ * 3. Menu responsive mobile
+ * 4. Traitement et retour visuel du formulaire
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // --------------------------------------------------------------------------
-  // 1. LUEUR SUIVEUSE DE SOURIS
+  // 1. LUEUR SUIVEUSE DE SOURIS (RÉDUITE, MONO-ROSE, CLIC GAUCHE ISOLÉ)
   // --------------------------------------------------------------------------
   const cursorGlow = document.getElementById('cursor-glow');
 
@@ -22,55 +22,60 @@ document.addEventListener('DOMContentLoaded', () => {
       cursorGlow.style.top = `${e.clientY}px`;
     });
 
-    // Rétroaction visuelle au clic (intensification)
-    window.addEventListener('mousedown', () => {
-      cursorGlow.classList.add('clicking');
+    // Intensification réservée exclusivement au clic gauche (e.button === 0)
+    window.addEventListener('mousedown', (e) => {
+      if (e.button === 0) {
+        cursorGlow.classList.add('clicking');
+      }
     });
 
-    window.addEventListener('mouseup', () => {
-      cursorGlow.classList.remove('clicking');
+    // Relâchement amorti (géré par la transition CSS)
+    window.addEventListener('mouseup', (e) => {
+      if (e.button === 0) {
+        cursorGlow.classList.remove('clicking');
+      }
     });
   }
 
   // --------------------------------------------------------------------------
-  // 2. BARRE LATÉRALE : SCROLLSPY & DÉPLACEMENT DE LA PUCE DE PROGRESSION
+  // 2. BARRE FLOTTANTE : SCROLLSPY & PUCE DE PROGRESSION CENTRÉE
   // --------------------------------------------------------------------------
   const menuLinks = document.querySelectorAll('.menu-link');
   const sections = document.querySelectorAll('section[id]');
   const indicatorDot = document.getElementById('nav-indicator-dot');
-  const sidebarNav = document.querySelector('.sidebar-nav');
+  const navTrack = document.querySelector('.nav-track');
 
   /**
-   * Repositionne la puce défilante en face du lien actif dans la barre
+   * Repositionne précisément la puce défilante en face du lien de section actif
    */
-  const updateIndicatorPosition = (activeLink) => {
-    if (!indicatorDot || !sidebarNav || !activeLink) return;
-    
-    // Calcul de la distance relative du lien par rapport au conteneur de navigation
-    const navRect = sidebarNav.getBoundingClientRect();
-    const linkRect = activeLink.getBoundingClientRect();
-    const relativeTop = linkRect.top - navRect.top + (linkRect.height / 2) - (indicatorDot.offsetHeight / 2);
+  const updateIndicator = (activeLink) => {
+    if (!indicatorDot || !navTrack || !activeLink) return;
 
-    indicatorDot.style.transform = `translateY(${Math.max(0, relativeTop)}px)`;
+    const trackRect = navTrack.getBoundingClientRect();
+    const linkRect = activeLink.getBoundingClientRect();
+
+    // Position relative du centre du lien par rapport à la piste
+    const relativePosition = linkRect.top - trackRect.top + (linkRect.height / 2) - (indicatorDot.offsetHeight / 2);
+    indicatorDot.style.transform = `translateY(${Math.max(0, relativePosition)}px)`;
   };
 
   if ('IntersectionObserver' in window && sections.length > 0) {
     const observerOptions = {
       root: null,
-      rootMargin: '-30% 0px -55% 0px', // Détection équilibrée sur grand et petit écran
+      rootMargin: '-30% 0px -50% 0px', // Détection équilibrée
       threshold: 0
     };
 
-    const sectionObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const currentId = entry.target.getAttribute('id');
-          
+          const id = entry.target.getAttribute('id');
+
           menuLinks.forEach(link => {
             const href = link.getAttribute('href');
-            if (href === `#${currentId}`) {
+            if (href === `#${id}`) {
               link.classList.add('active');
-              updateIndicatorPosition(link);
+              updateIndicator(link);
             } else {
               link.classList.remove('active');
             }
@@ -79,11 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, observerOptions);
 
-    sections.forEach(section => sectionObserver.observe(section));
+    sections.forEach(section => observer.observe(section));
   }
 
   // --------------------------------------------------------------------------
-  // 3. BARRE LATÉRALE SUR MOBILE (BURGER)
+  // 3. MENU MOBILE (BURGER)
   // --------------------------------------------------------------------------
   const sidebarToggle = document.getElementById('sidebar-toggle');
   const sidebar = document.getElementById('sidebar');
@@ -107,44 +112,44 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 4. FORMULAIRE DE CONTACT (FEEDBACK VISUEL)
+  // 4. FORMULAIRE DE CONTACT
   // --------------------------------------------------------------------------
   const contactForm = document.getElementById('contact-form');
-  const formAlert = document.getElementById('form-alert');
+  const feedbackMsg = document.getElementById('form-feedback-msg');
 
-  if (contactForm && formAlert) {
+  if (contactForm && feedbackMsg) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Transmission...';
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const defaultText = btn.textContent;
+
+      btn.disabled = true;
+      btn.textContent = 'Envoi...';
 
       // Simulation d'envoi réseau
       setTimeout(() => {
-        formAlert.className = 'form-alert success';
-        formAlert.textContent = 'Message envoyé avec succès. Je vous répondrai sous 24h.';
+        feedbackMsg.className = 'form-feedback-msg success';
+        feedbackMsg.textContent = 'Message envoyé avec succès. Je vous répondrai sous 24h.';
         
         contactForm.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
+        btn.disabled = false;
+        btn.textContent = defaultText;
 
         setTimeout(() => {
-          formAlert.textContent = '';
-          formAlert.className = 'form-alert';
+          feedbackMsg.textContent = '';
+          feedbackMsg.className = 'form-feedback-msg';
         }, 5000);
       }, 700);
     });
   }
 
   // --------------------------------------------------------------------------
-  // 5. ANNÉE DU FOOTER
+  // 5. ANNÉE DYNAMIQUE DU FOOTER
   // --------------------------------------------------------------------------
-  const yearElement = document.getElementById('current-year');
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
+  const currentYearSpan = document.getElementById('current-year');
+  if (currentYearSpan) {
+    currentYearSpan.textContent = new Date().getFullYear();
   }
 
 });
