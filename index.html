@@ -6,9 +6,9 @@
 
 				<!-- PLACEHOLDER : Adapte à ton identité -->
 				<title>Alexandre Dupont | Développeur d'Applications - BTS SIO SLAM</title>
-				<meta name="description" content="Portfolio de développeur junior BTS SIO SLAM : réalisations logicielles, compétences, parcours centralisé et veille technologique.">
+				<meta name="description" content="Portfolio de développeur junior BTS SIO SLAM : réalisations logicielles, compétences, certifications et veille technologique.">
 
-					<!-- Polices Google Fonts -->
+					<!-- Polices Google Fonts : Inter & JetBrains Mono -->
 					<link rel="preconnect" href="https://fonts.googleapis.com">
 						<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 							<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,8 +17,29 @@
 </head>
 	<body>
 
-		<!-- Lueur suiveuse de souris (mono-couleur rose pastel avec transition douce) -->
+		<!-- Vignette d'ambiance sur les bords -->
+		<div class="screen-vignette" aria-hidden="true"></div>
+
+		<!-- Motif hexagonal d'arrière-plan -->
+		<div class="hex-bg-base" aria-hidden="true"></div>
+		<div class="hex-bg-interactive" id="hex-bg-interactive" aria-hidden="true"></div>
+
+		<!-- Lueur de la souris (cœur blanc vers gradient rose) -->
 		<div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+		<!-- ================================================================= -->
+		<!-- BANDEAU SUPÉRIEUR (AVEC FOND VITRÉ FLOUTÉ RESTAURÉ)               -->
+		<!-- ================================================================= -->
+		<header class="top-announcement-bar">
+			<div class="container-inner top-bar-inner">
+				<div class="top-bar-text-wrapper">
+					<!-- PLACEHOLDER : Texte libre en haut de page -->
+					<p class="top-bar-main-text">
+						Recherche active de stage de 6 à 8 semaines (Mai — Juin 2026) • BTS SIO SLAM • Métropole Lilloise & Télétravail
+					</p>
+				</div>
+			</div>
+		</header>
 
 		<!-- Bouton burger mobile -->
 		<button class="sidebar-toggle" id="sidebar-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
@@ -28,9 +49,9 @@
 		</button>
 
 		<!-- ================================================================= -->
-		<!-- BARRE LATÉRALE FLOTTANTE (GAUCHE)                                 -->
+		<!-- BARRE LATÉRALE FLOTTANTE                                          -->
 		<!-- ================================================================= -->
-		<aside class="sidebar" id="sidebar">
+		<aside class="sidebar glow-border-card" id="sidebar">
 			<div class="sidebar-inner">
 
 				<!-- En-tête de la barre -->
@@ -43,9 +64,9 @@
 					<span class="brand-caption">BTS SIO SLAM</span>
 				</div>
 
-				<!-- Navigation centrée verticalement dans son espace -->
+				<!-- Navigation centrée -->
 				<nav class="sidebar-nav" aria-label="Navigation principale">
-					<div class="sidebar-nav-inner">
+					<div class="sidebar-nav-container">
 						<div class="nav-track" aria-hidden="true">
 							<div class="nav-indicator-dot" id="nav-indicator-dot"></div>
 						</div>
@@ -76,17 +97,17 @@
 					</div>
 				</nav>
 
-				<!-- Pied de la barre latérale -->
+				<!-- Réseaux sociaux centrés -->
 				<div class="sidebar-footer">
 					<div class="sidebar-socials">
 						<!-- PLACEHOLDER : Liens réseaux réels -->
 						<a href="https://github.com/ton-profil" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
-							<svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+							<svg class="icon-lg" viewBox="0 0 24 24" fill="currentColor">
 								<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
 							</svg>
 						</a>
 						<a href="https://linkedin.com/in/ton-profil" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
-							<svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+							<svg class="icon-lg" viewBox="0 0 24 24" fill="currentColor">
 								<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
 							</svg>
 						</a>
@@ -105,64 +126,93 @@
 				<!-- 1. SECTION ACCUEIL -->
 				<section class="section section-hero" id="hero">
 					<div class="container-inner">
+						<div class="hero-layout">
 
-						<div class="hero-status glow-halo">
-							<span class="status-indicator"></span>
-							<span>BTS SIO SLAM • Développeur Logiciel Junior</span>
+							<!-- Colonne Gauche : Textes & Raccourcis -->
+							<div class="hero-text-col">
+								<!-- PLACEHOLDER : Ton Prénom et Nom -->
+								<h1 class="hero-title" id="hero-title">
+									Alexandre <span class="gradient-text glow-text">Dupont</span>
+								</h1>
+
+								<div class="hero-subcontent">
+									<p class="hero-role">Concepteur d'Applications Métiers & Développeur Logiciel / Web</p>
+
+									<p class="hero-intro">
+										Passionné par la modélisation rigoureuse de données et les architectures orientées objet propres, je développe des solutions applicatives durables, sécurisées et maintenables.
+									</p>
+
+									<!-- Raccourcis homogènes -->
+									<div class="hero-shortcuts">
+										<!-- PLACEHOLDER : Chemin vers ton CV dans /assets/ -->
+										<a href="./assets/CV_Alexandre_Dupont.pdf" class="btn btn-shortcut glow-border-card" target="_blank" rel="noopener noreferrer">
+											<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+												<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+												<polyline points="7 10 12 15 17 10"></polyline>
+												<line x1="12" y1="15" x2="12" y2="3"></line>
+											</svg>
+											Mon CV (PDF)
+										</a>
+										<a href="#projects" class="btn btn-shortcut glow-border-card">
+											<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+												<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+												<polyline points="2 17 12 22 22 17"></polyline>
+												<polyline points="2 12 12 17 22 12"></polyline>
+											</svg>
+											Mes projets
+										</a>
+										<a href="#contact" class="btn btn-shortcut glow-border-card">
+											<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+												<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+												<polyline points="22,6 12,13 2,6"></polyline>
+											</svg>
+											Me contacter
+										</a>
+									</div>
+								</div>
+							</div>
+
+							<!-- Colonne Droite : Photo agrandie (statique et stable) -->
+							<div class="hero-avatar-col">
+								<div class="hero-avatar-wrapper">
+									<!-- PLACEHOLDER PHOTO : Remplace par <img src="assets/photo.jpg" alt="Photo" class="hero-avatar-img"> -->
+									<div class="hero-avatar-placeholder glow-border-card" title="Emplacement pour votre future photo">
+										<svg class="avatar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+											<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+											<circle cx="12" cy="7" r="4"></circle>
+										</svg>
+										<span class="avatar-label">Photo</span>
+									</div>
+								</div>
+							</div>
+
 						</div>
-
-						<!-- PLACEHOLDER : Prénom et Nom -->
-						<h1 class="hero-title">
-							Alexandre <span class="gradient-text glow-text">Dupont</span>
-						</h1>
-						<p class="hero-role">Concepteur d'Applications Métiers & Développeur Web / API</p>
-
-						<p class="hero-intro">
-							Passionné par la modélisation rigoureuse de données et le développement d'architectures orientées objet maintenables, je conçois des solutions logicielles sécurisées de bout en bout.
-						</p>
-
-						<!-- Raccourcis indispensables : CV, Projets, Contact -->
-						<div class="hero-shortcuts">
-							<!-- PLACEHOLDER : Chemin vers ton CV dans /assets/ -->
-							<a href="./assets/CV_Alexandre_Dupont.pdf" class="btn btn-accent glow-btn" target="_blank" rel="noopener noreferrer">
-								<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-									<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-									<polyline points="7 10 12 15 17 10"></polyline>
-									<line x1="12" y1="15" x2="12" y2="3"></line>
-								</svg>
-								Télécharger mon CV
-							</a>
-							<a href="#projects" class="btn btn-secondary glow-card">
-								<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-									<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-									<polyline points="2 17 12 22 22 17"></polyline>
-									<polyline points="2 12 12 17 22 12"></polyline>
-								</svg>
-								Voir les projets
-							</a>
-							<a href="#contact" class="btn btn-subtle">
-								<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-									<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-									<polyline points="22,6 12,13 2,6"></polyline>
-								</svg>
-								Me contacter
-							</a>
-						</div>
-
 					</div>
+
+					<!-- Flèche statique remontée et centrée -->
+					<a href="#about" class="hero-scroll-btn" aria-label="Découvrir mon profil">
+						<span class="scroll-btn-text">Découvrir mon profil</span>
+						<div class="scroll-btn-circle">
+							<svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+								<polyline points="7 10 12 15 17 10"></polyline>
+							</svg>
+						</div>
+					</a>
 				</section>
 
-				<!-- 2. SECTION À PROPOS (AVEC RECHERCHE DE STAGE EN ÉVIDENCE) -->
+				<!-- 2. SECTION À PROPOS -->
 				<section class="section section-about" id="about">
 					<div class="container-inner">
 
-						<div class="section-heading">
-							<span class="section-tag">// 01. Présentation</span>
-							<h2 class="section-title">À propos de moi</h2>
-						</div>
+						<div class="about-top-grid">
 
-						<div class="about-content-box">
-							<div class="about-text-column">
+							<!-- Présentation -->
+							<div class="about-text-column reveal-item">
+								<div class="section-heading">
+									<span class="section-tag">// 01. Profil</span>
+									<h2 class="section-title">À propos de moi</h2>
+								</div>
+
 								<p>
 									Actuellement en formation de <strong>BTS SIO (option SLAM)</strong>, j'acquiers une méthode rigoureuse pour concevoir, tester et maintenir des solutions logicielles professionnelles.
 								</p>
@@ -171,113 +221,109 @@
 								</p>
 							</div>
 
-							<!-- Bloc officiel de recherche de stage -->
-							<div class="stage-alert-card glow-card">
-								<div class="stage-alert-header">
-									<span class="badge-accent glow-badge">Recherche active</span>
-									<span class="stage-badge-status">Mai — Juin</span>
+							<!-- Recherche de stage -->
+							<div class="about-stage-column reveal-item">
+								<div class="stage-alert-card glow-border-card">
+									<div class="stage-alert-header">
+										<span class="badge-accent glow-badge">Recherche active</span>
+										<span class="stage-badge-status">Mai — Juin</span>
+									</div>
+									<!-- PLACEHOLDER : Dates de stage -->
+									<h3 class="stage-title">Recherche de stage en développement applicatif</h3>
+									<p class="stage-details">
+										Disponible pour un stage conventionné de <strong>6 à 8 semaines</strong> en développement logiciel ou web, avec perspective d'alternance pour la deuxième année de BTS.
+									</p>
+									<ul class="stage-specs">
+										<li>
+											<span class="spec-label">Technologies :</span> PHP / Symfony, C# / .NET, JavaScript, SQL.
+										</li>
+										<li>
+											<span class="spec-label">Mobilité :</span> Métropole Lilloise & télétravail.
+										</li>
+									</ul>
+									<a href="#contact" class="btn btn-sm btn-accent glow-btn stage-cta">Proposer une opportunité &rarr;</a>
 								</div>
-								<!-- PLACEHOLDER : Adapte à ta recherche exacte -->
-								<h3 class="stage-title">À la recherche d'un stage en développement applicatif</h3>
-								<p class="stage-details">
-									Disponible pour un stage conventionné de <strong>6 à 8 semaines</strong> en tant que développeur web ou logiciel, avec perspective d'alternance pour la deuxième année de BTS.
-								</p>
-								<ul class="stage-specs">
-									<li>
-										<span class="spec-label">Technologies cibles :</span> PHP / Symfony, C# / .NET, JavaScript / Node, SQL.
-									</li>
-									<li>
-										<span class="spec-label">Zone géographique :</span> Hauts-de-France (Métropole Lilloise) & télétravail.
-									</li>
-								</ul>
-								<a href="#contact" class="btn btn-sm btn-accent glow-btn stage-cta">Proposer une opportunité &rarr;</a>
 							</div>
+
 						</div>
 
 					</div>
 				</section>
 
-				<!-- 3. SECTION PARCOURS (AXE DE PROGRESSION CENTRALISÉ) -->
+				<!-- 3. SECTION PARCOURS -->
 				<section class="section section-parcours" id="parcours">
 					<div class="container-inner">
 
-						<div class="section-heading text-center">
+						<div class="section-heading text-center reveal-item">
 							<span class="section-tag">// 02. Historique & Cursus</span>
 							<h2 class="section-title">Parcours & Formations</h2>
-							<p class="section-lead mx-auto">Frise chronologique détaillée de mon apprentissage et de mes certifications.</p>
+							<p class="section-lead mx-auto">Frise chronologique détaillée de mon apprentissage et de mes étapes de formation.</p>
 						</div>
 
-						<!-- Ligne de progression centrale avec cartes alternées gauche / droite -->
-						<div class="center-timeline">
+						<div class="center-timeline" id="center-timeline">
 							<div class="center-timeline-line" aria-hidden="true"></div>
 
 							<!-- Étape 1 (Gauche) -->
-							<div class="timeline-entry entry-left">
-								<div class="entry-card glow-card">
+							<div class="timeline-entry entry-left reveal-item">
+								<div class="entry-card glow-card glow-border-card">
 									<span class="entry-date">2024 — Présent</span>
 									<h3 class="entry-title">BTS SIO option SLAM</h3>
 									<h4 class="entry-place">Lycée Gaston Berger — Lille</h4>
 									<p class="entry-text">
-										Formation supérieure spécialisée dans le génie logiciel d'organisation :
+										Formation supérieure axée sur le génie logiciel d'entreprise :
 									</p>
 									<ul class="entry-list">
-										<li>Modélisation de données Merise (MCD/MLD) et bases SQL optimisées (MySQL, PostgreSQL).</li>
-										<li>Architecture applicative Modèle-Vue-Contrôleur (MVC) en PHP 8 et C# .NET.</li>
-										<li>Sécurisation des accès utilisateurs, validation des entrées et bonnes pratiques OWASP.</li>
+										<li>Modélisation de bases relationnelles (Merise MCD/MLD, SQL sous MySQL et PostgreSQL).</li>
+										<li>Architecture Modèle-Vue-Contrôleur (MVC) en PHP 8 et C# .NET.</li>
+										<li>Sécurisation applicative (authentification forte, requêtes préparées, contrôles CSRF).</li>
 									</ul>
 								</div>
 								<div class="entry-dot" aria-hidden="true"></div>
 							</div>
 
 							<!-- Étape 2 (Droite) -->
-							<div class="timeline-entry entry-right">
-								<div class="entry-card glow-card">
+							<div class="timeline-entry entry-right reveal-item">
+								<div class="entry-card glow-card glow-border-card">
 									<span class="entry-date">Mai — Juin 2025</span>
-									<!-- PLACEHOLDER : Adapte avec ton expérience/stage -->
+									<!-- PLACEHOLDER : Stage/Mission -->
 									<h3 class="entry-title">Stage Développeur d'Applications Web</h3>
 									<h4 class="entry-place">Agence Digitale / DSI d'Entreprise</h4>
 									<p class="entry-text">
-										Stage d'immersion professionnelle en environnement agile :
+										Immersion au sein d'une équipe de production :
 									</p>
 									<ul class="entry-list">
-										<li>Évolution de fonctionnalités sur un portail de gestion interne sous Symfony.</li>
-										<li>Optimisation des requêtes Doctrine ORM et indexation de tables relationnelles.</li>
-										<li>Gestion de versions collaborative avec Git (pull requests, relecture de code).</li>
+										<li>Évolution de modules sous Symfony et intégration responsive.</li>
+										<li>Optimisation de requêtes Doctrine ORM et intégrité relationnelle.</li>
+										<li>Gestion d'équipe avec Git (branches de fonctionnalités, pull requests).</li>
 									</ul>
 								</div>
 								<div class="entry-dot" aria-hidden="true"></div>
 							</div>
 
 							<!-- Étape 3 (Gauche) -->
-							<div class="timeline-entry entry-left">
-								<div class="entry-card glow-card">
+							<div class="timeline-entry entry-left reveal-item">
+								<div class="entry-card glow-card glow-border-card">
 									<span class="entry-date">2024</span>
-									<h3 class="entry-title">Certifications & Auto-formation</h3>
-									<h4 class="entry-place">ANSSI & Plateformes techniques</h4>
+									<h3 class="entry-title">Auto-formation & Pratique continue</h3>
+									<h4 class="entry-place">Plateformes techniques & Dépôts personnels</h4>
 									<ul class="entry-list">
-										<li>
-											<strong>SecNumAcadémie (ANSSI) :</strong> Maîtrise des fondamentaux de la sécurité numérique.
-										</li>
-										<li>
-											<strong>Git & GitHub :</strong> Stratégies de branches GitFlow et gestion des conflits.
-										</li>
-										<li>
-											<strong>Algorithmique avancée :</strong> Structures de données, récursivité et complexité.
-										</li>
+										<li>Pratique approfondie de Git (rebase, stash, résolution de conflits).</li>
+										<li>Consommation d'APIs REST et structuration de payloads JSON.</li>
+										<li>Architecture logicielle propre et modularité des classes métier.</li>
 									</ul>
 								</div>
 								<div class="entry-dot" aria-hidden="true"></div>
 							</div>
 
 							<!-- Étape 4 (Droite) -->
-							<div class="timeline-entry entry-right">
-								<div class="entry-card glow-card">
+							<div class="timeline-entry entry-right reveal-item">
+								<div class="entry-card glow-card glow-border-card">
 									<span class="entry-date">2024</span>
-									<!-- PLACEHOLDER : Adapte à ton Baccalauréat -->
+									<!-- PLACEHOLDER : Baccalauréat -->
 									<h3 class="entry-title">Baccalauréat Général (NSI & Mathématiques)</h3>
 									<h4 class="entry-place">Lycée Faidherbe — Lille</h4>
 									<p class="entry-text">
-										Obtention avec Mention Bien. Programmation en Python, manipulation de structures arborescentes et bases de l'intégration web.
+										Mention Bien. Apprentissage fondamental des structures de données (arbres, graphes, piles) et algorithmie en Python.
 									</p>
 								</div>
 								<div class="entry-dot" aria-hidden="true"></div>
@@ -292,212 +338,509 @@
 				<section class="section section-skills" id="skills">
 					<div class="container-inner">
 
-						<div class="section-heading">
+						<div class="section-heading reveal-item">
 							<span class="section-tag">// 03. Savoir-faire</span>
 							<h2 class="section-title">Compétences Techniques</h2>
 						</div>
 
 						<div class="skills-grid">
 
-							<div class="skill-box glow-card">
+							<!-- Bloc 1 : Langages & Frameworks -->
+							<div class="skill-box glow-card glow-border-card reveal-item">
 								<div class="skill-box-header">
 									<span class="accent-point"></span>
 									<h3 class="skill-box-title">Langages & Frameworks</h3>
 								</div>
 								<ul class="skill-specs">
+
 									<li>
-										<span class="tech-item">PHP 8 / Symfony</span>
+										<div class="tech-item-wrapper">
+											<!-- PLACEHOLDER ICÔNE : Remplace ce SVG par <img src="assets/icons/php.svg" class="tech-icon-img"> -->
+											<span class="tech-icon-slot" title="Icône PHP">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<polyline points="16 18 22 12 16 6"></polyline>
+													<polyline points="8 6 2 12 8 18"></polyline>
+												</svg>
+											</span>
+											<span class="tech-item">PHP 8 / Symfony</span>
+										</div>
 										<span class="tech-tag-rate">Avancé</span>
 									</li>
+
 									<li>
-										<span class="tech-item">C# / .NET (WinForms, WPF)</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône C#">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<polyline points="16 18 22 12 16 6"></polyline>
+													<polyline points="8 6 2 12 8 18"></polyline>
+												</svg>
+											</span>
+											<span class="tech-item">C# / .NET (WinForms, WPF)</span>
+										</div>
 										<span class="tech-tag-rate">Intermédiaire</span>
 									</li>
+
 									<li>
-										<span class="tech-item">SQL (MySQL, PostgreSQL)</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône SQL">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+													<path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+													<path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+												</svg>
+											</span>
+											<span class="tech-item">SQL (MySQL, PostgreSQL)</span>
+										</div>
 										<span class="tech-tag-rate">Avancé</span>
 									</li>
+
 									<li>
-										<span class="tech-item">JavaScript (ES6+)</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône JavaScript">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+												</svg>
+											</span>
+											<span class="tech-item">JavaScript (ES6+)</span>
+										</div>
 										<span class="tech-tag-rate">Intermédiaire</span>
 									</li>
+
 									<li>
-										<span class="tech-item">HTML5 / CSS3 moderne</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône Web">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+													<polyline points="2 17 12 22 22 17"></polyline>
+													<polyline points="2 12 12 17 22 12"></polyline>
+												</svg>
+											</span>
+											<span class="tech-item">HTML5 / CSS3 moderne</span>
+										</div>
 										<span class="tech-tag-rate">Avancé</span>
 									</li>
+
 									<li>
-										<span class="tech-item">Python</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône Python">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<circle cx="12" cy="12" r="10"></circle>
+													<line x1="12" y1="8" x2="12" y2="12"></line>
+													<line x1="12" y1="16" x2="12.01" y2="16"></line>
+												</svg>
+											</span>
+											<span class="tech-item">Python</span>
+										</div>
 										<span class="tech-tag-rate">Notions</span>
 									</li>
+
 								</ul>
 							</div>
 
-							<div class="skill-box glow-card">
+							<!-- Bloc 2 : Outils & Systèmes -->
+							<div class="skill-box glow-card glow-border-card reveal-item">
 								<div class="skill-box-header">
-									<span class="accent-point"></span>
+									<span class="accent-point accent-point-green"></span>
 									<h3 class="skill-box-title">Outils & Systèmes</h3>
 								</div>
 								<ul class="skill-specs">
+
 									<li>
-										<span class="tech-item">Git / GitHub (GitFlow, PR)</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône Git">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<line x1="6" y1="3" x2="6" y2="15"></line>
+													<circle cx="18" cy="6" r="3"></circle>
+													<circle cx="6" cy="18" r="3"></circle>
+													<path d="M18 9a9 9 0 0 1-9 9"></path>
+												</svg>
+											</span>
+											<span class="tech-item">Git / GitHub (GitFlow, PR)</span>
+										</div>
 										<span class="tech-tag-rate">Régulier</span>
 									</li>
+
 									<li>
-										<span class="tech-item">Docker (Conteneurisation LAMP)</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône Docker">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<rect x="2" y="2" width="20" height="8" rx="2"></rect>
+													<rect x="2" y="14" width="20" height="8" rx="2"></rect>
+													<line x1="6" y1="6" x2="6.01" y2="6"></line>
+													<line x1="6" y1="18" x2="6.01" y2="18"></line>
+												</svg>
+											</span>
+											<span class="tech-item">Docker (Environnements LAMP)</span>
+										</div>
 										<span class="tech-tag-rate">Pratique</span>
 									</li>
+
 									<li>
-										<span class="tech-item">Linux / CLI Bash</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône Linux">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<polyline points="4 17 10 11 4 5"></polyline>
+													<line x1="12" y1="19" x2="20" y2="19"></line>
+												</svg>
+											</span>
+											<span class="tech-item">Linux / CLI Bash</span>
+										</div>
 										<span class="tech-tag-rate">Quotidien</span>
 									</li>
+
 									<li>
-										<span class="tech-item">VS Code / PhpStorm</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône IDE">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<rect x="2" y="3" width="20" height="14" rx="2"></rect>
+													<line x1="8" y1="21" x2="16" y2="21"></line>
+													<line x1="12" y1="17" x2="12" y2="21"></line>
+												</svg>
+											</span>
+											<span class="tech-item">VS Code / PhpStorm</span>
+										</div>
 										<span class="tech-tag-rate">Quotidien</span>
 									</li>
+
 									<li>
-										<span class="tech-item">Postman (Tests API REST)</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône Postman">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<circle cx="12" cy="12" r="10"></circle>
+													<polygon points="10 8 16 12 10 16 10 8"></polygon>
+												</svg>
+											</span>
+											<span class="tech-item">Postman (Tests API REST)</span>
+										</div>
 										<span class="tech-tag-rate">Régulier</span>
 									</li>
+
 									<li>
-										<span class="tech-item">Composer & npm</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône Gestionnaires">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+												</svg>
+											</span>
+											<span class="tech-item">Composer & npm</span>
+										</div>
 										<span class="tech-tag-rate">Régulier</span>
 									</li>
+
 								</ul>
 							</div>
 
-							<div class="skill-box glow-card">
+							<!-- Bloc 3 : Méthodes & Analyse -->
+							<div class="skill-box glow-card glow-border-card reveal-item">
 								<div class="skill-box-header">
 									<span class="accent-point"></span>
 									<h3 class="skill-box-title">Méthodes & Analyse</h3>
 								</div>
 								<ul class="skill-specs">
+
 									<li>
-										<span class="tech-item">Merise (MCD, MLD, MPD)</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône Merise">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<rect x="3" y="3" width="18" height="18" rx="2"></rect>
+													<line x1="3" y1="9" x2="21" y2="9"></line>
+													<line x1="9" y1="21" x2="9" y2="9"></line>
+												</svg>
+											</span>
+											<span class="tech-item">Merise (MCD, MLD, MPD)</span>
+										</div>
 										<span class="tech-tag-rate">Maîtrisé</span>
 									</li>
+
 									<li>
-										<span class="tech-item">Modélisation UML (Cas, Classes)</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône UML">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+													<polyline points="2 17 12 22 22 17"></polyline>
+													<polyline points="2 12 12 17 22 12"></polyline>
+												</svg>
+											</span>
+											<span class="tech-item">Modélisation UML (Cas, Classes)</span>
+										</div>
 										<span class="tech-tag-rate">Maîtrisé</span>
 									</li>
+
 									<li>
-										<span class="tech-item">Méthode Agile Scrum</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône Scrum">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<circle cx="12" cy="12" r="10"></circle>
+													<polyline points="12 6 12 12 16 14"></polyline>
+												</svg>
+											</span>
+											<span class="tech-item">Méthode Agile Scrum</span>
+										</div>
 										<span class="tech-tag-rate">Appliqué</span>
 									</li>
+
 									<li>
-										<span class="tech-item">Tests unitaires (PHPUnit)</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône Tests">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<polyline points="9 11 12 14 22 4"></polyline>
+													<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+												</svg>
+											</span>
+											<span class="tech-item">Tests unitaires (PHPUnit)</span>
+										</div>
 										<span class="tech-tag-rate">Notions</span>
 									</li>
+
 									<li>
-										<span class="tech-item">Sécurité & Règles OWASP</span>
+										<div class="tech-item-wrapper">
+											<span class="tech-icon-slot" title="Icône Sécurité">
+												<svg class="tech-icon-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+													<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+												</svg>
+											</span>
+											<span class="tech-item">Sécurité OWASP</span>
+										</div>
 										<span class="tech-tag-rate">Appliqué</span>
 									</li>
+
 								</ul>
 							</div>
 
 						</div>
 
+						<!-- SOUS-SECTION CERTIFICATIONS -->
+						<div class="certifications-block reveal-item">
+							<div class="subsection-heading">
+								<h3 class="subsection-title">Certifications & Formations Reconnues</h3>
+							</div>
+
+							<div class="certifications-grid">
+
+								<div class="cert-card glow-card glow-border-card">
+									<div class="cert-header">
+										<span class="cert-badge">Cybersécurité</span>
+										<span class="cert-year">2024</span>
+									</div>
+									<h4 class="cert-title">SecNumAcadémie (ANSSI)</h4>
+									<p class="cert-issuer">Agence Nationale de la Sécurité des Systèmes d'Information</p>
+									<p class="cert-desc">Validation des modules fondamentaux : sécurité des postes, authentification robuste, navigation web et sécurité nomade.</p>
+								</div>
+
+								<div class="cert-card glow-card glow-border-card">
+									<div class="cert-header">
+										<span class="cert-badge cert-badge-green">Génie Logiciel</span>
+										<span class="cert-year">2025</span>
+									</div>
+									<h4 class="cert-title">Git & Gestion de Versions Collaborative</h4>
+									<p class="cert-issuer">Plateforme d'évaluation technique</p>
+									<p class="cert-desc">Maîtrise du cycle Git : résolution des conflits, branches de livraison, rebase interactif et contribution collective.</p>
+								</div>
+
+								<div class="cert-card glow-card glow-border-card">
+									<div class="cert-header">
+										<span class="cert-badge">Bases de Données</span>
+										<span class="cert-year">2024</span>
+									</div>
+									<h4 class="cert-title">Modélisation Relationnelle & SQL Avancé</h4>
+									<p class="cert-issuer">Évaluation académique BTS</p>
+									<p class="cert-desc">Conception de schémas conformes à la 3ème forme normale, optimisation des index et requêtes imbriquées.</p>
+								</div>
+
+							</div>
+						</div>
+
 					</div>
 				</section>
 
-				<!-- 5. SECTION PROJETS (ÉPREUVE E4) -->
+				<!-- 5. SECTION PROJETS -->
 				<section class="section section-projects" id="projects">
 					<div class="container-inner">
 
-						<div class="section-heading">
+						<div class="section-heading reveal-item">
 							<span class="section-tag">// 04. Réalisations</span>
-							<h2 class="section-title">Projets BTS SIO (Épreuve E4)</h2>
-							<p class="section-lead">Applications conçues dans le respect des blocs de compétences du diplôme.</p>
+							<h2 class="section-title">Projets & Réalisations</h2>
+							<p class="section-lead">Portfolio scindé entre réalisations académiques présentées à l'épreuve E4 et projets en entreprise / personnels.</p>
 						</div>
 
-						<div class="projects-grid">
+						<!-- GROUPE 1 : PROJETS SCOLAIRES & ACADÉMIQUES -->
+						<div class="projects-category-group reveal-item">
+							<div class="category-header">
+								<h3 class="category-title">Projets Académiques & Scolaires (Épreuve E4)</h3>
+								<p class="category-desc">Applications conçues dans le cadre de la formation BTS SIO validant le bloc 2 du référentiel SLAM.</p>
+							</div>
 
-							<!-- Projet 1 -->
-							<article class="project-item glow-card">
-								<div class="project-header">
-									<span class="badge-accent glow-badge">Projet École E4</span>
-									<span class="project-nature">Application Web MVC</span>
-								</div>
-								<h3 class="project-name">GestStock — Gestion de Parc & Matériel</h3>
-								<p class="project-description">
-									Solution web de suivi des stocks d'un parc informatique d'entreprise. Architecture MVC sans framework pour assimiler les bases du routage, hachage des mots de passe avec Bcrypt et export d'états d'inventaire.
-								</p>
+							<div class="projects-grid">
 
-								<div class="project-e4-box">
-									<span class="e4-label">Compétences E4 :</span>
-									<p class="e4-text">Conception applicative • BDD relationnelle • Gestion des sessions sécurisées</p>
-								</div>
+								<!-- Projet Scolaire 1 : Web PHP MVC -->
+								<article class="project-item glow-card glow-border-card">
 
-								<div class="project-pills">
-									<span class="pill">PHP 8</span>
-									<span class="pill">MVC</span>
-									<span class="pill">MySQL</span>
-									<span class="pill">PDO</span>
-								</div>
+									<div class="project-img-placeholder" title="Emplacement pour aperçu / capture d'écran">
+										<svg class="project-img-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+											<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+											<circle cx="8.5" cy="8.5" r="1.5"></circle>
+											<polyline points="21 15 16 10 5 21"></polyline>
+										</svg>
+										<span class="project-img-label">Aperçu du projet</span>
+									</div>
 
-								<div class="project-links">
-									<a href="https://github.com/ton-profil/geststock" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">Code source</a>
-									<a href="./assets/docs/Fiche_E4_GestStock.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-link">Fiche E4 &rarr;</a>
-								</div>
-							</article>
+									<div class="project-header">
+										<span class="badge-accent glow-badge">Projet École E4</span>
+										<span class="project-nature">Web MVC</span>
+									</div>
+									<h4 class="project-name">GestStock — Gestion de Parc & Matériel</h4>
+									<p class="project-description">
+										Application web de gestion des stocks d'équipements pour un laboratoire. Architecture MVC native en PHP 8 sans framework, hachage Bcrypt et génération d'états d'inventaire.
+									</p>
 
-							<!-- Projet 2 -->
-							<article class="project-item glow-card">
-								<div class="project-header">
-									<span class="badge-accent glow-badge">Projet Stage / E4</span>
-									<span class="project-nature">Client Lourd C#</span>
-								</div>
-								<h3 class="project-name">MediDesk — Gestionnaire de Consultations</h3>
-								<p class="project-description">
-									Application desktop conçue pour la gestion des dossiers médicaux et la planification des consultations. Intégration d'un serveur SQL avec Entity Framework et requêtes LINQ.
-								</p>
+									<div class="project-e4-box">
+										<span class="e4-label">Compétences E4 :</span>
+										<p class="e4-text">Conception applicative • BDD relationnelle • Gestion des sessions sécurisées</p>
+									</div>
 
-								<div class="project-e4-box">
-									<span class="e4-label">Compétences E4 :</span>
-									<p class="e4-text">Programmation événementielle • Transactions SQL • Intégrité référentielle</p>
-								</div>
+									<div class="project-pills">
+										<span class="pill">PHP 8</span>
+										<span class="pill">MVC</span>
+										<span class="pill">MySQL</span>
+										<span class="pill">PDO</span>
+									</div>
 
-								<div class="project-pills">
-									<span class="pill">C# .NET</span>
-									<span class="pill">WPF</span>
-									<span class="pill">Entity Framework</span>
-									<span class="pill">SQL Server</span>
-								</div>
+									<div class="project-links">
+										<a href="https://github.com/ton-profil/geststock" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">Code source</a>
+										<a href="./assets/docs/Fiche_E4_GestStock.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-link">Fiche E4 &rarr;</a>
+									</div>
+								</article>
 
-								<div class="project-links">
-									<a href="https://github.com/ton-profil/medidesk" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">Code source</a>
-									<a href="./assets/docs/Fiche_E4_MediDesk.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-link">Fiche E4 &rarr;</a>
-								</div>
-							</article>
+								<!-- Projet Scolaire 2 : Client Lourd C# .NET -->
+								<article class="project-item glow-card glow-border-card">
 
-							<!-- Projet 3 -->
-							<article class="project-item glow-card">
-								<div class="project-header">
-									<span class="badge-accent glow-badge">Projet Personnel</span>
-									<span class="project-nature">API RESTful</span>
-								</div>
-								<h3 class="project-name">SupportHub API — Système de Ticketing</h3>
-								<p class="project-description">
-									API REST sécurisée destinée à centraliser les demandes d'assistance technique. Authentification par JWT (JSON Web Tokens), sérialisation stricte et documentation Swagger interactive.
-								</p>
+									<div class="project-img-placeholder" title="Emplacement pour aperçu / capture d'écran">
+										<svg class="project-img-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+											<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+											<circle cx="8.5" cy="8.5" r="1.5"></circle>
+											<polyline points="21 15 16 10 5 21"></polyline>
+										</svg>
+										<span class="project-img-label">Aperçu du projet</span>
+									</div>
 
-								<div class="project-e4-box">
-									<span class="e4-label">Compétences E4 :</span>
-									<p class="e4-text">Développement de web services • Authentification par jeton • Documentation OpenAPI</p>
-								</div>
+									<div class="project-header">
+										<span class="badge-accent glow-badge">Projet École E4</span>
+										<span class="project-nature">Client Lourd C#</span>
+									</div>
+									<h4 class="project-name">MediDesk — Gestionnaire de Consultations</h4>
+									<p class="project-description">
+										Application desktop Windows conçue pour la gestion des dossiers patients et la planification des rendez-vous. Connexion SQL Server via Entity Framework et requêtes LINQ.
+									</p>
 
-								<div class="project-pills">
-									<span class="pill">Symfony 7</span>
-									<span class="pill">API Platform</span>
-									<span class="pill">JWT</span>
-									<span class="pill">PostgreSQL</span>
-								</div>
+									<div class="project-e4-box">
+										<span class="e4-label">Compétences E4 :</span>
+										<p class="e4-text">Programmation événementielle • Transactions SQL • Intégrité référentielle</p>
+									</div>
 
-								<div class="project-links">
-									<a href="https://github.com/ton-profil/supporthub-api" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">Code source</a>
-									<a href="https://ton-api-demo.fr/docs" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-link">Swagger UI &rarr;</a>
-								</div>
-							</article>
+									<div class="project-pills">
+										<span class="pill">C# .NET</span>
+										<span class="pill">WPF</span>
+										<span class="pill">Entity Framework</span>
+										<span class="pill">SQL Server</span>
+									</div>
 
+									<div class="project-links">
+										<a href="https://github.com/ton-profil/medidesk" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">Code source</a>
+										<a href="./assets/docs/Fiche_E4_MediDesk.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-link">Fiche E4 &rarr;</a>
+									</div>
+								</article>
+
+							</div>
+						</div>
+
+						<!-- GROUPE 2 : PROJETS PROFESSIONNELS & PERSONNELS -->
+						<div class="projects-category-group reveal-item">
+							<div class="category-header">
+								<h3 class="category-title">Projets Professionnels & Personnels</h3>
+								<p class="category-desc">Réalisations conduites en stage d'entreprise ou développements autonomes d'approfondissement.</p>
+							</div>
+
+							<div class="projects-grid">
+
+								<!-- Projet Pro 1 : Stage en entreprise -->
+								<article class="project-item glow-card glow-border-card">
+
+									<div class="project-img-placeholder" title="Emplacement pour aperçu / capture d'écran">
+										<svg class="project-img-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+											<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+											<circle cx="8.5" cy="8.5" r="1.5"></circle>
+											<polyline points="21 15 16 10 5 21"></polyline>
+										</svg>
+										<span class="project-img-label">Aperçu du projet</span>
+									</div>
+
+									<div class="project-header">
+										<span class="badge-accent badge-pro glow-badge">Projet de Stage</span>
+										<span class="project-nature">Web Entreprise</span>
+									</div>
+									<h4 class="project-name">Factur'Action — Module de Facturation Interne</h4>
+									<p class="project-description">
+										Conception d'un module d'édition de factures automatisées et d'exports comptables au sein d'une application existante sous Symfony. Optimisation des temps de requête et contrôle des droits utilisateurs.
+									</p>
+
+									<div class="project-e4-box">
+										<span class="e4-label">Contexte & Impact :</span>
+										<p class="e4-text">Stage de 6 semaines • Réduction de 40% du temps de traitement comptable</p>
+									</div>
+
+									<div class="project-pills">
+										<span class="pill">Symfony 7</span>
+										<span class="pill">Doctrine ORM</span>
+										<span class="pill">GitLab</span>
+										<span class="pill">PostgreSQL</span>
+									</div>
+
+									<div class="project-links">
+										<span class="project-confidential">Code confidentiel (Entreprise)</span>
+										<a href="./assets/docs/Synthese_Stage.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-link">Bilan de stage &rarr;</a>
+									</div>
+								</article>
+
+								<!-- Projet Pro 2 : API REST personnelle -->
+								<article class="project-item glow-card glow-border-card">
+
+									<div class="project-img-placeholder" title="Emplacement pour aperçu / capture d'écran">
+										<svg class="project-img-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+											<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+											<circle cx="8.5" cy="8.5" r="1.5"></circle>
+											<polyline points="21 15 16 10 5 21"></polyline>
+										</svg>
+										<span class="project-img-label">Aperçu du projet</span>
+									</div>
+
+									<div class="project-header">
+										<span class="badge-accent badge-perso glow-badge">Projet Personnel</span>
+										<span class="project-nature">API RESTful</span>
+									</div>
+									<h4 class="project-name">SupportHub API — Système de Ticketing</h4>
+									<p class="project-description">
+										API REST sécurisée centralisant les demandes d'assistance technique. Authentification via JWT (JSON Web Tokens), validation stricte des payloads et documentation Swagger automatisée.
+									</p>
+
+									<div class="project-e4-box">
+										<span class="e4-label">Objectif technique :</span>
+										<p class="e4-text">Architecture orientée services • Sécurisation d'endpoints • Documentation OpenAPI</p>
+									</div>
+
+									<div class="project-pills">
+										<span class="pill">Symfony 7</span>
+										<span class="pill">API Platform</span>
+										<span class="pill">JWT</span>
+										<span class="pill">PostgreSQL</span>
+									</div>
+
+									<div class="project-links">
+										<a href="https://github.com/ton-profil/supporthub-api" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-outline">Code source</a>
+										<a href="https://ton-api-demo.fr/docs" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-link">Swagger UI &rarr;</a>
+									</div>
+								</article>
+
+							</div>
 						</div>
 
 					</div>
@@ -507,20 +850,20 @@
 				<section class="section section-veille" id="veille">
 					<div class="container-inner">
 
-						<div class="section-heading">
+						<div class="section-heading reveal-item">
 							<span class="section-tag">// 05. Veille E5</span>
 							<h2 class="section-title">Veille Technologique</h2>
-							<p class="section-lead">Surveillance continue des normes de sécurité et des architectures logicielles modernes.</p>
+							<p class="section-lead">Surveillance continue des normes de sécurité logicielle et des architectures modernes.</p>
 						</div>
 
-						<div class="veille-box glow-card">
+						<div class="veille-box glow-card glow-border-card reveal-item">
 							<div class="veille-top-line">
 								<span class="badge-accent glow-badge">Sujet d'étude</span>
 								<span class="veille-cycle">Cycle BTS 2024 — 2026</span>
 							</div>
 							<h3 class="veille-subject">Sécurité des APIs REST : De OAuth 2.1 à la Prévention des Risques OWASP API</h3>
 							<p class="veille-body">
-								Étude approfondie de la protection des points d'accès exposés : gestion des identités machine-to-machine, fin des flux d'autorisation vulnérables et détection proactive des failles d'autorisation objet.
+								Étude approfondie de la protection des points d'accès exposés : authentification machine-to-machine, fin des flux vulnérables et détection proactive des failles d'autorisation d'objets.
 							</p>
 
 							<div class="veille-channels">
@@ -535,27 +878,27 @@
 						</div>
 
 						<div class="veille-grid">
-							<article class="news-card glow-card">
+							<article class="news-card glow-card glow-border-card reveal-item">
 								<span class="news-date">Janvier 2026</span>
-								<h4 class="news-title">Standardisation OAuth 2.1 : Suppression définitive de l'Implicit Flow</h4>
+								<h4 class="news-title">Standardisation OAuth 2.1 : Fin définitive de l'Implicit Flow</h4>
 								<p class="news-summary">
-									Obligation générale d'utiliser PKCE pour tous les clients OAuth. Sécurisation maximale contre l'interception de tokens au sein des applications web à page unique (SPA).
+									Obligation générale d'utiliser PKCE pour sécuriser les applications clientes contre l'interception de tokens d'accès.
 								</p>
 							</article>
 
-							<article class="news-card glow-card">
+							<article class="news-card glow-card glow-border-card reveal-item">
 								<span class="news-date">Novembre 2025</span>
-								<h4 class="news-title">BOLA : Risque majeur du top 10 OWASP API et mesures d'atténuation</h4>
+								<h4 class="news-title">BOLA : Risque majeur OWASP API et mesures de remédiation</h4>
 								<p class="news-summary">
-									Mise en place de filtres d'autorisation stricts au niveau du domaine de données (Voters Symfony, clauses LINQ) plutôt que de s'appuyer sur la simple obscurité des URLs.
+									Validation granulaire des autorisations au niveau de la couche domaine (Voters Symfony, filtres LINQ) évitant les accès illégitimes par URI.
 								</p>
 							</article>
 
-							<article class="news-card glow-card">
+							<article class="news-card glow-card glow-border-card reveal-item">
 								<span class="news-date">Septembre 2025</span>
-								<h4 class="news-title">Rate-Limiting granulaire avec Redis en amont des microservices</h4>
+								<h4 class="news-title">Rate-Limiting adaptatif avec Redis en amont des routes d'API</h4>
 								<p class="news-summary">
-									Blocage des tentatives d'énumération de données et d'attaques par force brute à l'aide de fenêtres glissantes enregistrées en mémoire vive.
+									Atténuation des attaques par force brute et de l'énumération de ressources via des limites de requêtes glissantes en mémoire.
 								</p>
 							</article>
 						</div>
@@ -563,68 +906,117 @@
 					</div>
 				</section>
 
-				<!-- 7. SECTION CONTACT -->
+				<!-- 7. SECTION CONTACT (FORMULAIRE ET COORDONNÉES RIGOUREUSEMENT ALIGNÉS) -->
 				<section class="section section-contact" id="contact">
 					<div class="container-inner">
 
-						<div class="section-heading">
+						<div class="section-heading reveal-item">
 							<span class="section-tag">// 06. Me joindre</span>
-							<h2 class="section-title">Contact & Échange</h2>
-							<p class="section-lead">Vous recherchez un profil motivé pour un stage ou une alternance ? Discutons-en.</p>
+							<h2 class="section-title">Contact & Disponibilité</h2>
+							<p class="section-lead">Une opportunité de stage ou une question sur mes projets ? Échangeons directement.</p>
 						</div>
 
 						<div class="contact-box-grid">
 
-							<div class="contact-info-col">
-								<h3 class="contact-col-title">Coordonnées professionnelles</h3>
+							<!-- Colonne Coordonnées -->
+							<div class="contact-info-col reveal-item">
+								<h3 class="contact-col-title">Coordonnées directes</h3>
 								<p class="contact-col-text">
-									N'hésitez pas à me joindre directement pour échanger sur une offre de stage ou découvrir mes réalisations.
+									Cliquez directement sur l'un de mes canaux ci-dessous pour m'envoyer un message ou consulter mes travaux.
 								</p>
 
-								<div class="info-card glow-card">
-									<span class="info-label">E-mail pro</span>
-									<!-- PLACEHOLDER : Ton e-mail -->
-									<a href="mailto:alexandre.dupont.pro@email.fr" class="info-value">alexandre.dupont.pro@email.fr</a>
-								</div>
+								<!-- Carte 1 : Email -->
+								<!-- PLACEHOLDER : Ton e-mail -->
+								<a href="mailto:alexandre.dupont.pro@email.fr" class="contact-interactive-card glow-border-card" title="Envoyer un e-mail">
+									<div class="card-icon-bubble">
+										<svg class="icon-contact" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+											<polyline points="22,6 12,13 2,6"></polyline>
+										</svg>
+									</div>
+									<div class="card-info-content">
+										<span class="card-info-label">Courriel professionnel</span>
+										<span class="card-info-value">alexandre.dupont.pro@email.fr</span>
+									</div>
+									<div class="card-action-indicator">
+										<span class="action-text">Écrire</span>
+										<svg class="icon-arrow-action" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<line x1="7" y1="17" x2="17" y2="7"></line>
+											<polyline points="7 7 17 7 17 17"></polyline>
+										</svg>
+									</div>
+								</a>
 
-								<div class="info-card glow-card">
-									<span class="info-label">LinkedIn</span>
-									<!-- PLACEHOLDER : Ton profil LinkedIn -->
-									<a href="https://linkedin.com/in/ton-profil" target="_blank" rel="noopener noreferrer" class="info-value">linkedin.com/in/alexandre-dupont</a>
-								</div>
+								<!-- Carte 2 : LinkedIn -->
+								<!-- PLACEHOLDER : Ton profil LinkedIn -->
+								<a href="https://linkedin.com/in/ton-profil" target="_blank" rel="noopener noreferrer" class="contact-interactive-card glow-border-card" title="Ouvrir mon profil LinkedIn">
+									<div class="card-icon-bubble">
+										<svg class="icon-contact" viewBox="0 0 24 24" fill="currentColor">
+											<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+										</svg>
+									</div>
+									<div class="card-info-content">
+										<span class="card-info-label">Réseau LinkedIn</span>
+										<span class="card-info-value">linkedin.com/in/alexandre-dupont</span>
+									</div>
+									<div class="card-action-indicator">
+										<span class="action-text">Visiter</span>
+										<svg class="icon-arrow-action" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<line x1="7" y1="17" x2="17" y2="7"></line>
+											<polyline points="7 7 17 7 17 17"></polyline>
+										</svg>
+									</div>
+								</a>
 
-								<div class="info-card glow-card">
-									<span class="info-label">GitHub</span>
-									<!-- PLACEHOLDER : Ton profil GitHub -->
-									<a href="https://github.com/ton-profil" target="_blank" rel="noopener noreferrer" class="info-value">github.com/alexandre-dupont</a>
-								</div>
+								<!-- Carte 3 : GitHub -->
+								<!-- PLACEHOLDER : Ton profil GitHub -->
+								<a href="https://github.com/ton-profil" target="_blank" rel="noopener noreferrer" class="contact-interactive-card glow-border-card" title="Ouvrir mon profil GitHub">
+									<div class="card-icon-bubble">
+										<svg class="icon-contact" viewBox="0 0 24 24" fill="currentColor">
+											<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+										</svg>
+									</div>
+									<div class="card-info-content">
+										<span class="card-info-label">Dépôts GitHub</span>
+										<span class="card-info-value">github.com/alexandre-dupont</span>
+									</div>
+									<div class="card-action-indicator">
+										<span class="action-text">Explorer</span>
+										<svg class="icon-arrow-action" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+											<line x1="7" y1="17" x2="17" y2="7"></line>
+											<polyline points="7 7 17 7 17 17"></polyline>
+										</svg>
+									</div>
+								</a>
 							</div>
 
-							<!-- Formulaire de contact propre -->
-							<form class="contact-form glow-card" id="contact-form" action="#" method="POST">
-								<div class="field-row">
-									<label for="name" class="field-label">Nom & Prénom</label>
-									<input type="text" id="name" name="name" class="field-input" placeholder="Jean Dupont" required="">
-              </div>
+							<!-- Colonne Formulaire de contact (synchronisée) -->
+							<div class="contact-form-col reveal-item">
+								<form class="contact-form glow-card glow-border-card" id="contact-form" action="#" method="POST">
+									<div class="field-row">
+										<label for="name" class="field-label">Nom & Prénom</label>
+										<input type="text" id="name" name="name" class="field-input" placeholder="Jean Dupont" required="">
+                </div>
 
-								<div class="field-row">
-									<label for="email" class="field-label">E-mail</label>
-									<input type="email" id="email" name="email" class="field-input" placeholder="jean.dupont@entreprise.fr" required="">
-              </div>
+									<div class="field-row">
+										<label for="email" class="field-label">E-mail</label>
+										<input type="email" id="email" name="email" class="field-input" placeholder="jean.dupont@entreprise.fr" required="">
+                </div>
 
-								<div class="field-row">
-									<label for="subject" class="field-label">Objet</label>
-									<input type="text" id="subject" name="subject" class="field-input" placeholder="Proposition de stage BTS SIO" required="">
-              </div>
+									<div class="field-row">
+										<label for="subject" class="field-label">Objet</label>
+										<input type="text" id="subject" name="subject" class="field-input" placeholder="Proposition de stage BTS SIO" required="">
+                </div>
 
-								<div class="field-row">
-									<label for="message" class="field-label">Message</label>
-									<textarea id="message" name="message" rows="5" class="field-input field-textarea" placeholder="Votre message..." required=""></textarea>
-								</div>
+									<div class="field-row field-row-grow">
+										<label for="message" class="field-label">Message</label>
+										<textarea id="message" name="message" class="field-input field-textarea" placeholder="Votre message..." required=""></textarea>
+									</div>
 
-								<button type="submit" class="btn btn-accent glow-btn btn-block">Envoyer le message</button>
-								<div class="form-feedback-msg" id="form-feedback-msg" aria-live="polite"></div>
-							</form>
+									<button type="submit" class="btn btn-shortcut btn-block glow-border-card">Envoyer le message</button>
+									<div class="form-feedback-msg" id="form-feedback-msg" aria-live="polite"></div>
+								</form>
+							</div>
 
 						</div>
 
@@ -639,10 +1031,18 @@
 					<p>
 						&copy; <span id="current-year">2026</span> Alexandre Dupont — Candidat BTS SIO SLAM.
 					</p>
-					<p class="footer-meta">Développé en HTML5 / CSS3 / Vanilla JS • Sans framework lourd</p>
+					<p class="footer-meta">Site responsive natif • Sans dépendance externe</p>
 				</div>
 			</footer>
 		</div>
+
+		<!-- BOUTON FLOTTANT REMONTER EN HAUT -->
+		<a href="#hero" class="back-to-top glow-border-card" id="back-to-top" aria-label="Remonter en haut de page">
+			<svg class="icon-back-top" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8">
+				<line x1="12" y1="19" x2="12" y2="5"></line>
+				<polyline points="5 12 12 5 19 12"></polyline>
+			</svg>
+		</a>
 
 		<script src="script.js"></script>
 	</body>

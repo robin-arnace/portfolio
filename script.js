@@ -2,34 +2,43 @@
  * script.js — Portfolio BTS SIO SLAM
  * 
  * Rôle :
- * 1. Suivi de souris adouci & isolation de l'effet clic sur le bouton gauche
- * 2. Positionnement dynamique de la puce de progression dans la barre flottante centrée
- * 3. Menu responsive mobile
- * 4. Traitement et retour visuel du formulaire
+ * 1. Lueur souris & trame hexagonale interactive
+ * 2. Bouton flottant "Remonter en haut" dynamique au scroll
+ * 3. Détection de proximité pour éclairer les contours des cartes (Glow border)
+ * 4. Apparition fluide au défilement (Scroll reveal) répétable à chaque passage
+ * 5. Puce de progression de la barre latérale et navigation responsive
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // --------------------------------------------------------------------------
-  // 1. LUEUR SUIVEUSE DE SOURIS (RÉDUITE, MONO-ROSE, CLIC GAUCHE ISOLÉ)
+  // 1. LUEUR SOURIS & TRACE HEXAGONALE INTERACTIVE
   // --------------------------------------------------------------------------
   const cursorGlow = document.getElementById('cursor-glow');
+  const hexInteractive = document.getElementById('hex-bg-interactive');
 
-  if (cursorGlow) {
-    // Déplacement fluide
-    window.addEventListener('mousemove', (e) => {
+  window.addEventListener('mousemove', (e) => {
+    // Coordonnées pour la lueur centrale
+    if (cursorGlow) {
       cursorGlow.style.left = `${e.clientX}px`;
       cursorGlow.style.top = `${e.clientY}px`;
-    });
+    }
 
-    // Intensification réservée exclusivement au clic gauche (e.button === 0)
+    // Coordonnées appliquées au masque de la trame hexagonale
+    if (hexInteractive) {
+      hexInteractive.style.setProperty('--screen-x', `${e.clientX}px`);
+      hexInteractive.style.setProperty('--screen-y', `${e.clientY}px`);
+    }
+  });
+
+  // Intensification instantanée au clic gauche et descente progressive
+  if (cursorGlow) {
     window.addEventListener('mousedown', (e) => {
       if (e.button === 0) {
         cursorGlow.classList.add('clicking');
       }
     });
 
-    // Relâchement amorti (géré par la transition CSS)
     window.addEventListener('mouseup', (e) => {
       if (e.button === 0) {
         cursorGlow.classList.remove('clicking');
@@ -38,35 +47,110 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 2. BARRE FLOTTANTE : SCROLLSPY & PUCE DE PROGRESSION CENTRÉE
+  // 2. BOUTON FLOTTANT "REMONTER EN HAUT" (DYNAMIQUE AU SCROLL)
+  // --------------------------------------------------------------------------
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      // Devient visible après avoir défilé de 300px
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('is-visible');
+      } else {
+        backToTopBtn.classList.remove('is-visible');
+      }
+    }, { passive: true });
+  }
+
+  // --------------------------------------------------------------------------
+  // 3. CONTOURS RÉACTIFS À LA SOURIS (PROXIMITY BORDER GLOW)
+  // --------------------------------------------------------------------------
+  const glowBorderCards = document.querySelectorAll('.glow-border-card');
+
+  if (glowBorderCards.length > 0) {
+    let ticking = false;
+
+    window.addEventListener('mousemove', (e) => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          glowBorderCards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 4. APPARITION AU DÉFILEMENT (SCROLL REVEAL RÉPÉTABLE)
+  // --------------------------------------------------------------------------
+  const revealElements = document.querySelectorAll('.reveal-item');
+
+  if ('IntersectionObserver' in window && revealElements.length > 0) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+        } else {
+          // Permet de rejouer l'animation dès que l'élément quitte l'écran
+          entry.target.classList.remove('is-revealed');
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('is-revealed'));
+  }
+
+  // --------------------------------------------------------------------------
+  // 5. PARCOURS : FOCUS DE SURVOL CIBLÉ SUR LES CARTES
+  // --------------------------------------------------------------------------
+  const centerTimeline = document.getElementById('center-timeline');
+  const timelineCards = document.querySelectorAll('.center-timeline .entry-card');
+
+  if (centerTimeline && timelineCards.length > 0) {
+    timelineCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        centerTimeline.classList.add('has-entry-hover');
+      });
+      card.addEventListener('mouseleave', () => {
+        centerTimeline.classList.remove('has-entry-hover');
+      });
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 6. BARRE FLOTTANTE : SCROLLSPY & PUCE DE PROGRESSION
   // --------------------------------------------------------------------------
   const menuLinks = document.querySelectorAll('.menu-link');
   const sections = document.querySelectorAll('section[id]');
   const indicatorDot = document.getElementById('nav-indicator-dot');
   const navTrack = document.querySelector('.nav-track');
 
-  /**
-   * Repositionne précisément la puce défilante en face du lien de section actif
-   */
   const updateIndicator = (activeLink) => {
     if (!indicatorDot || !navTrack || !activeLink) return;
 
     const trackRect = navTrack.getBoundingClientRect();
     const linkRect = activeLink.getBoundingClientRect();
 
-    // Position relative du centre du lien par rapport à la piste
     const relativePosition = linkRect.top - trackRect.top + (linkRect.height / 2) - (indicatorDot.offsetHeight / 2);
     indicatorDot.style.transform = `translateY(${Math.max(0, relativePosition)}px)`;
   };
 
   if ('IntersectionObserver' in window && sections.length > 0) {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-30% 0px -50% 0px', // Détection équilibrée
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
+    const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
@@ -82,13 +166,17 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
       });
-    }, observerOptions);
+    }, {
+      root: null,
+      rootMargin: '-30% 0px -50% 0px',
+      threshold: 0
+    });
 
-    sections.forEach(section => observer.observe(section));
+    sections.forEach(section => sectionObserver.observe(section));
   }
 
   // --------------------------------------------------------------------------
-  // 3. MENU MOBILE (BURGER)
+  // 7. MENU MOBILE (BURGER)
   // --------------------------------------------------------------------------
   const sidebarToggle = document.getElementById('sidebar-toggle');
   const sidebar = document.getElementById('sidebar');
@@ -100,7 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
       sidebarToggle.setAttribute('aria-expanded', !isOpen);
     });
 
-    // Fermeture automatique lors d'un clic sur une ancre
     menuLinks.forEach(link => {
       link.addEventListener('click', () => {
         if (sidebar.classList.contains('is-open')) {
@@ -112,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 4. FORMULAIRE DE CONTACT
+  // 8. FORMULAIRE DE CONTACT
   // --------------------------------------------------------------------------
   const contactForm = document.getElementById('contact-form');
   const feedbackMsg = document.getElementById('form-feedback-msg');
@@ -125,9 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const defaultText = btn.textContent;
 
       btn.disabled = true;
-      btn.textContent = 'Envoi...';
+      btn.textContent = 'Transmission...';
 
-      // Simulation d'envoi réseau
       setTimeout(() => {
         feedbackMsg.className = 'form-feedback-msg success';
         feedbackMsg.textContent = 'Message envoyé avec succès. Je vous répondrai sous 24h.';
@@ -145,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 5. ANNÉE DYNAMIQUE DU FOOTER
+  // 9. ANNÉE DU FOOTER
   // --------------------------------------------------------------------------
   const currentYearSpan = document.getElementById('current-year');
   if (currentYearSpan) {
