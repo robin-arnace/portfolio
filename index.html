@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="top">
 	<head>
 		<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,15 +24,15 @@
 		<div class="hex-bg-base" aria-hidden="true"></div>
 		<div class="hex-bg-interactive" id="hex-bg-interactive" aria-hidden="true"></div>
 
-		<!-- Lueur de la souris (cœur blanc vers gradient rose) -->
+		<!-- Lueur de la souris -->
 		<div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
 		<!-- ================================================================= -->
-		<!-- BANDEAU SUPÉRIEUR (AVEC FOND VITRÉ FLOUTÉ RESTAURÉ)               -->
+		<!-- BANDEAU SUPÉRIEUR                                                 -->
 		<!-- ================================================================= -->
 		<header class="top-announcement-bar">
 			<div class="container-inner top-bar-inner">
-				<div class="top-bar-text-wrapper">
+				<div class="top-bar-text-wrapper glow-border-card">
 					<!-- PLACEHOLDER : Texte libre en haut de page -->
 					<p class="top-bar-main-text">
 						Recherche active de stage de 6 à 8 semaines (Mai — Juin 2026) • BTS SIO SLAM • Métropole Lilloise & Télétravail
@@ -40,6 +40,9 @@
 				</div>
 			</div>
 		</header>
+
+		<!-- Ligne de démarcation supérieure -->
+		<div class="section-divider glow-border-card" aria-hidden="true"></div>
 
 		<!-- Bouton burger mobile -->
 		<button class="sidebar-toggle" id="sidebar-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
@@ -57,7 +60,7 @@
 				<!-- En-tête de la barre -->
 				<div class="sidebar-brand">
 					<!-- PLACEHOLDER : Initiales / Nom -->
-					<a href="#hero" class="brand-link">
+					<a href="#top" class="brand-link">
 						<span class="brand-initials">AD</span>
 						<span class="brand-dot">.dev</span>
 					</a>
@@ -73,7 +76,7 @@
 
 						<ul class="sidebar-menu" id="sidebar-menu">
 							<li class="menu-item">
-								<a href="#hero" class="menu-link active">Accueil</a>
+								<a href="#top" class="menu-link active">Accueil</a>
 							</li>
 							<li class="menu-item">
 								<a href="#about" class="menu-link">À propos</a>
@@ -172,7 +175,7 @@
 								</div>
 							</div>
 
-							<!-- Colonne Droite : Photo agrandie (statique et stable) -->
+							<!-- Colonne Droite : Photo -->
 							<div class="hero-avatar-col">
 								<div class="hero-avatar-wrapper">
 									<!-- PLACEHOLDER PHOTO : Remplace par <img src="assets/photo.jpg" alt="Photo" class="hero-avatar-img"> -->
@@ -187,20 +190,25 @@
 							</div>
 
 						</div>
-					</div>
 
-					<!-- Flèche statique remontée et centrée -->
-					<a href="#about" class="hero-scroll-btn" aria-label="Découvrir mon profil">
-						<span class="scroll-btn-text">Découvrir mon profil</span>
-						<div class="scroll-btn-circle">
-							<svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-								<polyline points="7 10 12 15 17 10"></polyline>
-							</svg>
+						<!-- Flèche dans le flux naturel -->
+						<div class="hero-scroll-wrapper">
+							<a href="#about" class="hero-scroll-btn" aria-label="Découvrir mon profil">
+								<span class="scroll-btn-text">Découvrir mon profil</span>
+								<div class="scroll-btn-circle glow-border-card">
+									<svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+										<polyline points="7 10 12 15 17 10"></polyline>
+									</svg>
+								</div>
+							</a>
 						</div>
-					</a>
+					</div>
 				</section>
 
-				<!-- 2. SECTION À PROPOS -->
+				<!-- SÉPARATEUR RÉACTIF -->
+				<div class="section-divider glow-border-card" aria-hidden="true"></div>
+
+				<!-- 2. SECTION À PROPOS (AVEC APERÇU DU PARCOURS EN BAS D'ÉCRAN) -->
 				<section class="section section-about" id="about">
 					<div class="container-inner">
 
@@ -250,6 +258,9 @@
 					</div>
 				</section>
 
+				<!-- SÉPARATEUR RÉACTIF -->
+				<div class="section-divider glow-border-card" aria-hidden="true"></div>
+
 				<!-- 3. SECTION PARCOURS -->
 				<section class="section section-parcours" id="parcours">
 					<div class="container-inner">
@@ -261,7 +272,8 @@
 						</div>
 
 						<div class="center-timeline" id="center-timeline">
-							<div class="center-timeline-line" aria-hidden="true"></div>
+							<!-- Ligne centrale réactive à la souris -->
+							<div class="center-timeline-line glow-border-card" aria-hidden="true"></div>
 
 							<!-- Étape 1 (Gauche) -->
 							<div class="timeline-entry entry-left reveal-item">
@@ -333,6 +345,9 @@
 
 					</div>
 				</section>
+
+				<!-- SÉPARATEUR RÉACTIF -->
+				<div class="section-divider glow-border-card" aria-hidden="true"></div>
 
 				<!-- 4. SECTION COMPÉTENCES -->
 				<section class="section section-skills" id="skills">
@@ -610,7 +625,7 @@
 						</div>
 
 						<!-- SOUS-SECTION CERTIFICATIONS -->
-						<div class="certifications-block reveal-item">
+						<div class="certifications-block glow-border-card reveal-item">
 							<div class="subsection-heading">
 								<h3 class="subsection-title">Certifications & Formations Reconnues</h3>
 							</div>
@@ -652,6 +667,9 @@
 
 					</div>
 				</section>
+
+				<!-- SÉPARATEUR RÉACTIF -->
+				<div class="section-divider glow-border-card" aria-hidden="true"></div>
 
 				<!-- 5. SECTION PROJETS -->
 				<section class="section section-projects" id="projects">
@@ -846,6 +864,9 @@
 					</div>
 				</section>
 
+				<!-- SÉPARATEUR RÉACTIF -->
+				<div class="section-divider glow-border-card" aria-hidden="true"></div>
+
 				<!-- 6. SECTION VEILLE TECHNOLOGIQUE (ÉPREUVE E5) -->
 				<section class="section section-veille" id="veille">
 					<div class="container-inner">
@@ -906,7 +927,10 @@
 					</div>
 				</section>
 
-				<!-- 7. SECTION CONTACT (FORMULAIRE ET COORDONNÉES RIGOUREUSEMENT ALIGNÉS) -->
+				<!-- SÉPARATEUR RÉACTIF -->
+				<div class="section-divider glow-border-card" aria-hidden="true"></div>
+
+				<!-- 7. SECTION CONTACT -->
 				<section class="section section-contact" id="contact">
 					<div class="container-inner">
 
@@ -990,7 +1014,7 @@
 								</a>
 							</div>
 
-							<!-- Colonne Formulaire de contact (synchronisée) -->
+							<!-- Colonne Formulaire de contact -->
 							<div class="contact-form-col reveal-item">
 								<form class="contact-form glow-card glow-border-card" id="contact-form" action="#" method="POST">
 									<div class="field-row">
@@ -1025,19 +1049,23 @@
 
 			</main>
 
+			<!-- SÉPARATEUR DE FOOTER RÉACTIF -->
+			<div class="section-divider glow-border-card" aria-hidden="true"></div>
+
 			<!-- FOOTER -->
 			<footer class="site-footer">
 				<div class="container-inner footer-inner">
-					<p>
-						&copy; <span id="current-year">2026</span> Alexandre Dupont — Candidat BTS SIO SLAM.
-					</p>
-					<p class="footer-meta">Site responsive natif • Sans dépendance externe</p>
+					<div class="footer-text-wrapper glow-border-card">
+						<p>
+							&copy; <span id="current-year">2026</span> Alexandre Dupont — Candidat BTS SIO SLAM.
+						</p>
+					</div>
 				</div>
 			</footer>
 		</div>
 
 		<!-- BOUTON FLOTTANT REMONTER EN HAUT -->
-		<a href="#hero" class="back-to-top glow-border-card" id="back-to-top" aria-label="Remonter en haut de page">
+		<a href="#top" class="back-to-top glow-border-card" id="back-to-top" aria-label="Remonter tout en haut de page">
 			<svg class="icon-back-top" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8">
 				<line x1="12" y1="19" x2="12" y2="5"></line>
 				<polyline points="5 12 12 5 19 12"></polyline>

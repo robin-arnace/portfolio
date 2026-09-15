@@ -1,19 +1,17 @@
 ﻿/* ==========================================================================
    STYLE.CSS — PORTFOLIO BTS SIO SLAM
-   - Police principale : Inter.
-   - Bandeau supérieur et footer : fond vitré flouté autour du texte.
-   - Saturation des bordures (glow on proximity) augmentée.
-   - Lueur de la souris : redéfinie avec cœur blanc -> rose vif pastel et luminosité haussée.
-   - Formulaire de contact : hauteur rigoureusement synchronisée avec la colonne gauche.
+   - Centrage absolu du contenu (.content-wrapper margin-inline: auto).
+   - Section "À propos" calibrée avec scroll-margin-top pour centrer le contenu
+     tout en laissant poindre le haut du parcours en bas de l'écran.
+   - Pastilles de frise chronologique pleines (.entry-dot).
+   - Hexagones au survol très discrets (opacité 0.14).
+   - Retrait des bordures gauches colorées sur les catégories et fiches projets.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
    1. VARIABLES DE STYLE
    -------------------------------------------------------------------------- */
 :root {
-  --bg-dark-0: #080d0a;
-  --bg-dark-1: #0c1410;
-  
   --surface-card: rgba(16, 26, 20, 0.76);
   --surface-border: rgba(245, 239, 230, 0.08);
   --surface-border-focus: rgba(244, 167, 187, 0.45);
@@ -35,17 +33,16 @@
 
   --halo-glow-card: 0 8px 30px rgba(0, 0, 0, 0.35);
 
-  /* Restauration de Inter */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --sidebar-width: 235px;
-  --sidebar-offset: 100px;
+  --sidebar-width: 205px;
+  --sidebar-offset: 36px;
   --content-max-width: 1040px;
 }
 
 /* --------------------------------------------------------------------------
-   2. RESET, BASES & VIGNETTE ÉCRAN
+   2. RESET, BASES & FOND GLOBAL
    -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -59,7 +56,14 @@ html {
 }
 
 body {
-  background-color: var(--bg-dark-0);
+  background: linear-gradient(
+    180deg,
+    #060a08 0%,
+    #16271e 22%,
+    #0a120e 45%,
+    #182c22 70%,
+    #060a08 100%
+  );
   color: var(--text-primary);
   font-family: var(--font-sans);
   line-height: 1.65;
@@ -100,13 +104,12 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   3. BANDEAU SUPÉRIEUR & FOOTER (FOND FLOUTÉ AUTOUR DU TEXTE)
+   3. BANDEAU SUPÉRIEUR & FOOTER
    -------------------------------------------------------------------------- */
 .top-announcement-bar {
   width: 100%;
   padding-block: 32px;
   background: transparent;
-  border-bottom: 1px solid var(--surface-border);
   position: relative;
   z-index: 10;
   font-size: 0.84rem;
@@ -120,14 +123,14 @@ ul {
 }
 
 .top-bar-text-wrapper,
-.footer-inner {
-  background: rgba(8, 13, 10, 0.72);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(245, 239, 230, 0.08);
-  padding: 10px 20px;
+.footer-text-wrapper {
+  background: rgba(8, 13, 10, 0.76);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 24px;
   border-radius: 999px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  display: inline-block;
 }
 
 .top-bar-main-text {
@@ -143,7 +146,7 @@ ul {
 .hex-bg-base {
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='83.138' viewBox='0 0 48 83.138'%3E%3Cpath d='M24 0 L48 13.856 L48 41.569 L24 55.426 L0 41.569 L0 13.856 Z M24 55.426 L24 83.138' fill='none' stroke='rgba(245, 239, 230, 0.125)' stroke-width='1.25'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='83.138' viewBox='0 0 48 83.138'%3E%3Cpath d='M24 0 L48 13.856 L48 41.569 L24 55.426 L0 41.569 L0 13.856 Z M24 55.426 L24 83.138' fill='none' stroke='rgba(245, 239, 230, 0.055)' stroke-width='1.1'/%3E%3C/svg%3E");
   background-repeat: repeat;
   pointer-events: none;
   z-index: 0;
@@ -154,7 +157,7 @@ ul {
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.82;
+  opacity: 0.14; /* Trame très discrète */
   background: radial-gradient(
     170px circle at var(--screen-x, -999px) var(--screen-y, -999px),
     #ff529a 0%,
@@ -163,46 +166,87 @@ ul {
     #a7f3d0 78%,
     transparent 90%
   );
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='83.138' viewBox='0 0 48 83.138'%3E%3Cpath d='M24 0 L48 13.856 L48 41.569 L24 55.426 L0 41.569 L0 13.856 Z M24 55.426 L24 83.138' fill='none' stroke='white' stroke-width='1.4'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='83.138' viewBox='0 0 48 83.138'%3E%3Cpath d='M24 0 L48 13.856 L48 41.569 L24 55.426 L0 41.569 L0 13.856 Z M24 55.426 L24 83.138' fill='none' stroke='white' stroke-width='1.4'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='83.138' viewBox='0 0 48 83.138'%3E%3Cpath d='M24 0 L48 13.856 L48 41.569 L24 55.426 L0 41.569 L0 13.856 Z M24 55.426 L24 83.138' fill='none' stroke='white' stroke-width='1.2'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='83.138' viewBox='0 0 48 83.138'%3E%3Cpath d='M24 0 L48 13.856 L48 41.569 L24 55.426 L0 41.569 L0 13.856 Z M24 55.426 L24 83.138' fill='none' stroke='white' stroke-width='1.2'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat;
   mask-repeat: repeat;
-  filter: drop-shadow(0 0 6px rgba(255, 82, 154, 0.55));
+  filter: drop-shadow(0 0 3px rgba(255, 82, 154, 0.2));
 }
 
 /* --------------------------------------------------------------------------
-   5. LUEUR DE LA SOURIS (LUMINOSITÉ LÉGÈREMENT HAUSSÉE, BLANC -> ROSE VIF)
+   5. LUEUR DE LA SOURIS
    -------------------------------------------------------------------------- */
 .cursor-glow {
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px;
-  height: 250px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   background: radial-gradient(
     circle, 
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(244, 167, 187, 0.35) 30%,
-    rgba(244, 114, 182, 0.18) 65%,
+    rgba(255, 255, 255, 0.38) 0%,
+    rgba(244, 167, 187, 0.26) 32%,
+    rgba(244, 114, 182, 0.12) 65%,
     transparent 85%
   );
   z-index: 1;
-  opacity: 0.65;
+  opacity: 0.52;
   filter: blur(12px);
   transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cursor-glow.clicking {
-  opacity: 0.85;
-  filter: blur(8px) brightness(1.5);
+  opacity: 0.75;
+  filter: blur(8px) brightness(1.4);
   transition: filter 0.04s ease-out, opacity 0.04s ease-out;
 }
 
 /* --------------------------------------------------------------------------
-   6. APPARITION AU DÉFILEMENT (SCROLL REVEAL RÉPÉTABLE)
+   6. BORDURES & ÉLÉMENTS RÉACTIFS
+   -------------------------------------------------------------------------- */
+.glow-border-card {
+  position: relative;
+  background-color: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+}
+
+.glow-border-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    360px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+    rgba(255, 110, 150, 0.95) 0%,
+    rgba(167, 243, 208, 0.7) 35%,
+    rgba(244, 167, 187, 0.4) 65%,
+    transparent 85%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.section-divider.glow-border-card {
+  width: min(90%, var(--content-max-width));
+  height: 1.5px;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 999px;
+  background-color: var(--surface-border);
+}
+
+/* --------------------------------------------------------------------------
+   7. APPARITION AU DÉFILEMENT (SCROLL REVEAL RÉPÉTABLE)
    -------------------------------------------------------------------------- */
 .reveal-item {
   opacity: 0;
@@ -218,39 +262,6 @@ ul {
   opacity: 1;
   transform: scale(1) translateY(0);
   filter: blur(0);
-}
-
-/* --------------------------------------------------------------------------
-   7. BORDURES RÉACTIVES À L'APPROCHE DU CURSEUR (SATURATION AUGMENTÉE)
-   -------------------------------------------------------------------------- */
-.glow-border-card {
-  position: relative;
-  background-color: var(--surface-card);
-  border: 1px solid var(--surface-border);
-  border-radius: 12px;
-}
-
-.glow-border-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  /* Saturation et opacité augmentées pour un éclat plus franc */
-  background: radial-gradient(
-    320px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
-    rgba(255, 110, 150, 0.95) 0%,
-    rgba(167, 243, 208, 0.7) 35%,
-    rgba(244, 167, 187, 0.4) 65%,
-    transparent 85%
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  z-index: 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -311,12 +322,12 @@ ul {
   transform: translateY(-50%);
   left: var(--sidebar-offset);
   width: var(--sidebar-width);
-  height: auto;
+  height: 520px;
   max-height: 85vh;
-  background: rgba(13, 21, 17, 0.84);
+  background: rgba(13, 21, 17, 0.88);
   border: 1px solid rgba(244, 167, 187, 0.18);
   border-radius: 20px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(244, 167, 187, 0.05);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(244, 167, 187, 0.05);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   z-index: 100;
@@ -328,13 +339,13 @@ ul {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 24px 18px;
+  padding: 24px 14px;
   gap: 28px;
 }
 
 .sidebar-brand {
   text-align: left;
-  padding-left: 14px;
+  padding-left: 12px;
 }
 
 .brand-link {
@@ -401,7 +412,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding-left: 18px;
+  padding-left: 16px;
   width: 100%;
 }
 
@@ -436,7 +447,7 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
 }
 
 .social-icon {
@@ -485,16 +496,17 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   10. SECTIONS & NUANCES DE FOND ENCHAÎNÉES (LISSAGE MULTI-POINTS CONTINU)
+   10. CONTENEUR & SECTIONS (RECENTRAGE ABSOLU)
    -------------------------------------------------------------------------- */
 .content-wrapper {
   width: 100%;
-  margin: 0;
+  margin: 0 auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 3;
+  padding-left: 0; /* Recentrage strict */
 }
 
 .container-inner {
@@ -509,6 +521,7 @@ ul {
 .section {
   width: 100%;
   position: relative;
+  background: transparent;
 }
 
 .section-hero {
@@ -516,71 +529,30 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 40px 0 100px;
-  background: linear-gradient(180deg, 
-    rgba(8, 13, 10, 0.88) 0%, 
-    rgba(10, 16, 12, 0.87) 35%, 
-    rgba(13, 20, 15, 0.86) 70%, 
-    rgba(15, 24, 19, 0.86) 100%);
+  padding: 40px 0 60px;
 }
 
+/* Section À propos : scroll-margin-top calibré pour centrer le contenu
+   tout en laissant visible le haut du parcours en bas d'écran */
 .section-about {
   min-height: auto;
   display: flex;
   align-items: center;
-  padding-top: 85px;
-  padding-bottom: 75px;
-  scroll-margin-top: 30px;
-  background: linear-gradient(180deg, 
-    rgba(15, 24, 19, 0.86) 0%, 
-    rgba(13, 21, 17, 0.86) 35%, 
-    rgba(11, 18, 14, 0.86) 70%, 
-    rgba(10, 17, 13, 0.86) 100%);
+  padding-top: 110px;
+  padding-bottom: 90px;
+  scroll-margin-top: calc(50vh - 260px);
 }
 
 .section-parcours {
-  padding-top: 190px;
-  padding-bottom: 130px;
-  background: linear-gradient(180deg, 
-    rgba(10, 17, 13, 0.86) 0%, 
-    rgba(13, 22, 17, 0.86) 35%, 
-    rgba(17, 27, 21, 0.86) 70%, 
-    rgba(20, 32, 25, 0.86) 100%);
+  padding-top: 160px;
+  padding-bottom: 120px;
 }
 
-.section-skills {
-  padding-block: 110px;
-  background: linear-gradient(180deg, 
-    rgba(20, 32, 25, 0.86) 0%, 
-    rgba(17, 27, 21, 0.86) 35%, 
-    rgba(14, 23, 18, 0.86) 70%, 
-    rgba(12, 19, 15, 0.86) 100%);
-}
-
-.section-projects {
-  padding-block: 110px;
-  background: linear-gradient(180deg, 
-    rgba(12, 19, 15, 0.86) 0%, 
-    rgba(14, 22, 17, 0.86) 35%, 
-    rgba(16, 25, 20, 0.86) 70%, 
-    rgba(18, 28, 22, 0.86) 100%);
-}
-
-.section-veille {
-  padding-block: 110px;
-  background: linear-gradient(180deg, 
-    rgba(18, 28, 22, 0.86) 0%, 
-    rgba(15, 23, 18, 0.86) 35%, 
-    rgba(12, 18, 14, 0.86) 70%, 
-    rgba(9, 14, 11, 0.86) 100%);
-}
-
+.section-skills,
+.section-projects,
+.section-veille,
 .section-contact {
-  padding-block: 110px;
-  background: linear-gradient(180deg, 
-    rgba(9, 14, 11, 0.86) 0%, 
-    rgba(8, 13, 10, 0.88) 50%, 
-    rgba(7, 11, 9, 0.92) 100%);
+  padding-block: 100px;
 }
 
 .section-heading {
@@ -806,11 +778,13 @@ ul {
   box-shadow: 0 0 28px rgba(244, 167, 187, 0.35);
 }
 
+.hero-scroll-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+
 .hero-scroll-btn {
-  position: absolute;
-  bottom: 85px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -819,7 +793,6 @@ ul {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   transition: color 0.25s ease;
-  z-index: 5;
 }
 
 .hero-scroll-btn:hover {
@@ -831,7 +804,6 @@ ul {
   height: 36px;
   border-radius: 50%;
   background: rgba(167, 243, 208, 0.08);
-  border: 1px solid rgba(167, 243, 208, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -865,7 +837,6 @@ ul {
 }
 
 .stage-alert-card {
-  border-left: 3px solid var(--accent-pink);
   padding: 24px;
 }
 
@@ -916,7 +887,7 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   14. PARCOURS
+   14. PARCOURS (PASTILLES PLEINES)
    -------------------------------------------------------------------------- */
 .center-timeline {
   position: relative;
@@ -934,6 +905,7 @@ ul {
   background-color: var(--surface-border);
   transform: translateX(-50%);
   border-radius: 2px;
+  border: none !important;
 }
 
 .timeline-entry {
@@ -960,9 +932,9 @@ ul {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: var(--bg-dark-1);
+  background-color: var(--accent-pink); /* Plein */
   border: 2px solid var(--accent-pink);
-  box-shadow: 0 0 10px rgba(244, 167, 187, 0.4);
+  box-shadow: 0 0 10px rgba(244, 167, 187, 0.6);
   z-index: 2;
 }
 
@@ -1115,10 +1087,9 @@ ul {
   color: var(--text-muted);
 }
 
-.certifications-block {
+.certifications-block.glow-border-card {
   margin-top: 40px;
-  padding-top: 36px;
-  border-top: 1px solid var(--surface-border);
+  padding: 32px 24px;
 }
 
 .subsection-heading {
@@ -1189,7 +1160,7 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   16. PROJETS
+   16. PROJETS (SANS BORDURES GAUCHES COLORÉES)
    -------------------------------------------------------------------------- */
 .projects-category-group {
   margin-bottom: 56px;
@@ -1201,8 +1172,8 @@ ul {
 
 .category-header {
   margin-bottom: 24px;
-  border-left: 2px solid var(--accent-pink);
-  padding-left: 14px;
+  border-left: none;
+  padding-left: 0;
 }
 
 .category-title {
@@ -1301,9 +1272,11 @@ ul {
 }
 
 .project-e4-box {
-  background: rgba(245, 239, 230, 0.02);
-  border-left: 2px solid var(--accent-green);
-  padding: 6px 10px;
+  background: rgba(245, 239, 230, 0.03);
+  border-left: none;
+  border: 1px solid var(--surface-border);
+  border-radius: 6px;
+  padding: 8px 12px;
   margin-bottom: 14px;
   font-size: 0.78rem;
 }
@@ -1407,7 +1380,7 @@ ul {
 
 .channel-pill {
   font-size: 0.74rem;
-  background-color: var(--bg-dark-1);
+  background-color: var(--bg-dark-0);
   color: var(--text-secondary);
   border: 1px solid var(--surface-border);
   padding: 2px 7px;
@@ -1446,7 +1419,7 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   18. CONTACT (ICÔNES HOMOGÉNÉISÉES EN ROSE PASTEL & ALIGNEMENT STRICT)
+   18. CONTACT
    -------------------------------------------------------------------------- */
 .contact-box-grid {
   display: grid;
@@ -1499,7 +1472,6 @@ ul {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(244, 167, 187, 0.12);
 }
 
-/* Toutes les bulles d'icônes sont rigoureusement unifiées en rose pastel */
 .card-icon-bubble {
   width: 44px;
   height: 44px;
@@ -1601,7 +1573,7 @@ ul {
 .field-input {
   width: 100%;
   padding: 8px 12px;
-  background-color: var(--bg-dark-0);
+  background-color: rgba(8, 13, 10, 0.75);
   border: 1px solid var(--surface-border);
   border-radius: 6px;
   color: var(--text-white);
@@ -1614,10 +1586,11 @@ ul {
   border-color: var(--surface-border-focus);
 }
 
+/* Zone de texte du formulaire agrandie (min-height: 110px) */
 .field-textarea {
   resize: vertical;
   height: 100%;
-  min-height: 65px;
+  min-height: 110px; /* Agrandie */
 }
 
 .form-feedback-msg {
@@ -1635,14 +1608,16 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   19. BOUTON REMONTER EN HAUT (ROND 52PX)
+   19. BOUTON REMONTER EN HAUT (DÉCALÉ UN PEU PLUS VERS LA GAUCHE)
    -------------------------------------------------------------------------- */
 .back-to-top {
   position: fixed;
-  bottom: 90px;
-  right: max(48px, calc((100vw - var(--content-max-width)) / 4));
-  width: 52px;
-  height: 52px;
+  bottom: 40px;
+  right: clamp(48px, 9vw, 110px); /* Décalé plus vers la gauche */
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
   border-radius: 50%;
   background: rgba(13, 21, 17, 0.94);
   border: 1.5px solid rgba(244, 167, 187, 0.45);
@@ -1676,8 +1651,8 @@ ul {
 }
 
 .icon-back-top {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
 }
 
@@ -1687,7 +1662,6 @@ ul {
 .site-footer {
   padding-block: 32px;
   background: transparent;
-  border-top: 1px solid var(--surface-border);
   font-size: 0.8rem;
   position: relative;
   z-index: 3;
@@ -1695,27 +1669,20 @@ ul {
 
 .footer-inner {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  color: var(--text-muted);
 }
 
-.footer-meta {
+.footer-text-wrapper p {
+  color: var(--text-muted);
   font-family: var(--font-mono);
+  font-size: 0.8rem;
 }
 
 /* --------------------------------------------------------------------------
-   21. RESPONSIVE DESIGN (TABLETTES & MOBILES)
+   21. RESPONSIVE DESIGN
    -------------------------------------------------------------------------- */
-@media (max-width: 1200px) {
-  :root {
-    --sidebar-offset: 40px;
-  }
-}
-
-@media (max-width: 992px) {
+@media (max-width: 1080px) {
   .sidebar-toggle {
     display: block;
   }
@@ -1764,10 +1731,8 @@ ul {
   }
 
   .back-to-top {
-    bottom: 30px;
-    right: 24px;
-    width: 48px;
-    height: 48px;
+    bottom: 24px;
+    right: 20px;
   }
 }
 

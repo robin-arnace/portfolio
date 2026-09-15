@@ -3,9 +3,9 @@
  * 
  * Rôle :
  * 1. Lueur souris & trame hexagonale interactive
- * 2. Bouton flottant "Remonter en haut" dynamique au scroll
- * 3. Détection de proximité pour éclairer les contours des cartes (Glow border)
- * 4. Apparition fluide au défilement (Scroll reveal) répétable à chaque passage
+ * 2. Gestion universelle et homogène des bordures et séparateurs (.glow-border-card)
+ * 3. Bouton flottant "Remonter en haut" ciblant le sommet (#top)
+ * 4. Apparition fluide au défilement (Scroll reveal) répétable
  * 5. Puce de progression de la barre latérale et navigation responsive
  */
 
@@ -18,20 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const hexInteractive = document.getElementById('hex-bg-interactive');
 
   window.addEventListener('mousemove', (e) => {
-    // Coordonnées pour la lueur centrale
     if (cursorGlow) {
       cursorGlow.style.left = `${e.clientX}px`;
       cursorGlow.style.top = `${e.clientY}px`;
     }
 
-    // Coordonnées appliquées au masque de la trame hexagonale
     if (hexInteractive) {
       hexInteractive.style.setProperty('--screen-x', `${e.clientX}px`);
       hexInteractive.style.setProperty('--screen-y', `${e.clientY}px`);
     }
   });
 
-  // Intensification instantanée au clic gauche et descente progressive
   if (cursorGlow) {
     window.addEventListener('mousedown', (e) => {
       if (e.button === 0) {
@@ -47,23 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
-  // 2. BOUTON FLOTTANT "REMONTER EN HAUT" (DYNAMIQUE AU SCROLL)
-  // --------------------------------------------------------------------------
-  const backToTopBtn = document.getElementById('back-to-top');
-
-  if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-      // Devient visible après avoir défilé de 300px
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add('is-visible');
-      } else {
-        backToTopBtn.classList.remove('is-visible');
-      }
-    }, { passive: true });
-  }
-
-  // --------------------------------------------------------------------------
-  // 3. CONTOURS RÉACTIFS À LA SOURIS (PROXIMITY BORDER GLOW)
+  // 2. CONTOURS & SÉPARATEURS RÉACTIFS STRICTEMENT HOMOGÈNES (.glow-border-card)
   // --------------------------------------------------------------------------
   const glowBorderCards = document.querySelectorAll('.glow-border-card');
 
@@ -89,6 +70,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --------------------------------------------------------------------------
+  // 3. REMONTÉE TOUT EN HAUT (BOUTON HAUT ET LIEN ACCUEIL / LOGO)
+  // --------------------------------------------------------------------------
+  const backToTopBtn = document.getElementById('back-to-top');
+  const topLinks = document.querySelectorAll('a[href="#top"]');
+
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('is-visible');
+      } else {
+        backToTopBtn.classList.remove('is-visible');
+      }
+    }, { passive: true });
+  }
+
+  topLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // --------------------------------------------------------------------------
   // 4. APPARITION AU DÉFILEMENT (SCROLL REVEAL RÉPÉTABLE)
   // --------------------------------------------------------------------------
   const revealElements = document.querySelectorAll('.reveal-item');
@@ -99,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-revealed');
         } else {
-          // Permet de rejouer l'animation dès que l'élément quitte l'écran
           entry.target.classList.remove('is-revealed');
         }
       });
@@ -157,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           menuLinks.forEach(link => {
             const href = link.getAttribute('href');
-            if (href === `#${id}`) {
+            if (href === `#${id}` || (id === 'hero' && href === '#top')) {
               link.classList.add('active');
               updateIndicator(link);
             } else {
