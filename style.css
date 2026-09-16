@@ -1273,7 +1273,9 @@ ul {
   border-top: 1px solid var(--surface-border);
 }
 
-/* Styles de la fenêtre modale (Popup centré) */
+/* ==========================================================================
+   FENÊTRE MODALE (POPUP CENTRÉ) POUR LES PROJETS PROFESSIONNELS
+   ========================================================================== */
 .project-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -1300,10 +1302,12 @@ ul {
   max-width: 520px;
   padding: 32px;
   position: relative;
-  background: rgba(16, 26, 20, 0.92);
+  background: rgba(16, 26, 20, 0.95);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(244, 167, 187, 0.15);
   transform: scale(0.95) translateY(10px);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 12px;
+  border: 1px solid var(--surface-border-focus);
 }
 
 .project-modal-backdrop.is-active .project-modal-window {
