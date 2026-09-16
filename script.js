@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       setTimeout(() => {
         feedbackMsg.className = 'form-feedback-msg success';
-        feedbackMsg.textContent = 'Message envoyé avec succès. Je vous répondrai sous 24h.';
+        feedbackMsg.textContent = 'Message envoyé avec succès.';
         
         contactForm.reset();
         btn.disabled = false;
