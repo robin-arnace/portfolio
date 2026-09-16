@@ -1,16 +1,7 @@
 ﻿/* ==========================================================================
    STYLE.CSS — PORTFOLIO BTS SIO SLAM
-   - Centrage absolu du contenu (.content-wrapper margin-inline: auto).
-   - Section "À propos" calibrée avec scroll-margin-top pour centrer le contenu
-     tout en laissant poindre le haut du parcours en bas de l'écran.
-   - Pastilles de frise chronologique pleines (.entry-dot).
-   - Hexagones au survol très discrets (opacité 0.14).
-   - Retrait des bordures gauches colorées sur les catégories et fiches projets.
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   1. VARIABLES DE STYLE
-   -------------------------------------------------------------------------- */
 :root {
   --surface-card: rgba(16, 26, 20, 0.76);
   --surface-border: rgba(245, 239, 230, 0.08);
@@ -41,9 +32,6 @@
   --content-max-width: 1040px;
 }
 
-/* --------------------------------------------------------------------------
-   2. RESET, BASES & FOND GLOBAL
-   -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -103,10 +91,9 @@ ul {
   margin-inline: auto;
 }
 
-/* --------------------------------------------------------------------------
-   3. BANDEAU SUPÉRIEUR & FOOTER
-   -------------------------------------------------------------------------- */
-.top-announcement-bar {
+/* Bandeaux supérieur & inférieur harmonisés */
+.top-announcement-bar,
+.site-footer {
   width: 100%;
   padding-block: 32px;
   background: transparent;
@@ -115,7 +102,8 @@ ul {
   font-size: 0.84rem;
 }
 
-.top-bar-inner {
+.top-bar-inner,
+.footer-inner {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,16 +121,15 @@ ul {
   display: inline-block;
 }
 
-.top-bar-main-text {
+.top-bar-main-text,
+.footer-main-text {
   color: var(--text-secondary);
   font-family: var(--font-mono);
   font-size: 0.82rem;
   letter-spacing: 0.3px;
 }
 
-/* --------------------------------------------------------------------------
-   4. MOTIF HEXAGONAL
-   -------------------------------------------------------------------------- */
+/* Motif Hexagonal */
 .hex-bg-base {
   position: fixed;
   inset: 0;
@@ -157,7 +144,7 @@ ul {
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.14; /* Trame très discrète */
+  opacity: 0.14;
   background: radial-gradient(
     170px circle at var(--screen-x, -999px) var(--screen-y, -999px),
     #ff529a 0%,
@@ -173,9 +160,6 @@ ul {
   filter: drop-shadow(0 0 3px rgba(255, 82, 154, 0.2));
 }
 
-/* --------------------------------------------------------------------------
-   5. LUEUR DE LA SOURIS
-   -------------------------------------------------------------------------- */
 .cursor-glow {
   position: fixed;
   top: 0;
@@ -204,9 +188,6 @@ ul {
   transition: filter 0.04s ease-out, opacity 0.04s ease-out;
 }
 
-/* --------------------------------------------------------------------------
-   6. BORDURES & ÉLÉMENTS RÉACTIFS
-   -------------------------------------------------------------------------- */
 .glow-border-card {
   position: relative;
   background-color: var(--surface-card);
@@ -245,9 +226,6 @@ ul {
   background-color: var(--surface-border);
 }
 
-/* --------------------------------------------------------------------------
-   7. APPARITION AU DÉFILEMENT (SCROLL REVEAL RÉPÉTABLE)
-   -------------------------------------------------------------------------- */
 .reveal-item {
   opacity: 0;
   transform: scale(1.02) translateY(18px);
@@ -264,9 +242,6 @@ ul {
   filter: blur(0);
 }
 
-/* --------------------------------------------------------------------------
-   8. EFFETS DE SURVOL CIBLÉS
-   -------------------------------------------------------------------------- */
 .projects-grid,
 .skills-grid,
 .certifications-grid,
@@ -313,9 +288,7 @@ ul {
   box-shadow: var(--halo-glow-card) !important;
 }
 
-/* --------------------------------------------------------------------------
-   9. BARRE LATÉRALE
-   -------------------------------------------------------------------------- */
+/* Barre latérale */
 .sidebar {
   position: fixed;
   top: 50%;
@@ -495,9 +468,7 @@ ul {
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* --------------------------------------------------------------------------
-   10. CONTENEUR & SECTIONS (RECENTRAGE ABSOLU)
-   -------------------------------------------------------------------------- */
+/* Conteneur global */
 .content-wrapper {
   width: 100%;
   margin: 0 auto;
@@ -506,7 +477,7 @@ ul {
   flex-direction: column;
   position: relative;
   z-index: 3;
-  padding-left: 0; /* Recentrage strict */
+  padding-left: 0;
 }
 
 .container-inner {
@@ -532,15 +503,13 @@ ul {
   padding: 40px 0 60px;
 }
 
-/* Section À propos : scroll-margin-top calibré pour centrer le contenu
-   tout en laissant visible le haut du parcours en bas d'écran */
 .section-about {
   min-height: auto;
   display: flex;
   align-items: center;
   padding-top: 110px;
   padding-bottom: 90px;
-  scroll-margin-top: calc(50vh - 260px);
+  scroll-margin-top: calc(50vh - 280px);
 }
 
 .section-parcours {
@@ -581,9 +550,7 @@ ul {
   margin-top: 8px;
 }
 
-/* --------------------------------------------------------------------------
-   11. BOUTONS & RACCOURCIS
-   -------------------------------------------------------------------------- */
+/* Boutons & Raccourcis */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -695,9 +662,7 @@ ul {
   border-color: rgba(245, 239, 230, 0.25);
 }
 
-/* --------------------------------------------------------------------------
-   12. ACCUEIL
-   -------------------------------------------------------------------------- */
+/* Accueil */
 .hero-layout {
   display: flex;
   align-items: center;
@@ -816,9 +781,7 @@ ul {
   color: var(--accent-green);
 }
 
-/* --------------------------------------------------------------------------
-   13. SECTION À PROPOS
-   -------------------------------------------------------------------------- */
+/* À propos */
 .about-top-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -886,9 +849,7 @@ ul {
   display: inline-flex;
 }
 
-/* --------------------------------------------------------------------------
-   14. PARCOURS (PASTILLES PLEINES)
-   -------------------------------------------------------------------------- */
+/* Parcours */
 .center-timeline {
   position: relative;
   max-width: 860px;
@@ -932,7 +893,7 @@ ul {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: var(--accent-pink); /* Plein */
+  background-color: var(--accent-pink);
   border: 2px solid var(--accent-pink);
   box-shadow: 0 0 10px rgba(244, 167, 187, 0.6);
   z-index: 2;
@@ -992,9 +953,7 @@ ul {
   color: var(--text-white);
 }
 
-/* --------------------------------------------------------------------------
-   15. COMPÉTENCES
-   -------------------------------------------------------------------------- */
+/* Compétences */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1159,9 +1118,7 @@ ul {
   line-height: 1.5;
 }
 
-/* --------------------------------------------------------------------------
-   16. PROJETS (SANS BORDURES GAUCHES COLORÉES)
-   -------------------------------------------------------------------------- */
+/* Projets */
 .projects-category-group {
   margin-bottom: 56px;
 }
@@ -1316,16 +1273,112 @@ ul {
   border-top: 1px solid var(--surface-border);
 }
 
-.project-confidential {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  color: var(--text-muted);
-  font-style: italic;
+/* Styles de la fenêtre modale (Popup centré) */
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 10, 8, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* --------------------------------------------------------------------------
-   17. VEILLE TECHNOLOGIQUE (E5)
-   -------------------------------------------------------------------------- */
+.project-modal-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.project-modal-window {
+  width: 100%;
+  max-width: 520px;
+  padding: 32px;
+  position: relative;
+  background: rgba(16, 26, 20, 0.92);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(244, 167, 187, 0.15);
+  transform: scale(0.95) translateY(10px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-modal-backdrop.is-active .project-modal-window {
+  transform: scale(1) translateY(0);
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.8rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.project-modal-close:hover {
+  color: var(--accent-pink);
+}
+
+.project-modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 14px;
+  padding-right: 24px;
+}
+
+.project-modal-divider {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 16px;
+  background-color: var(--surface-border);
+}
+
+.project-modal-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Bannière ArtStation */
+.artstation-banner-card {
+  padding: 24px;
+}
+
+.artstation-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.artstation-text {
+  flex: 1;
+  min-width: 240px;
+}
+
+.artstation-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 4px;
+}
+
+.artstation-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* Veille */
 .veille-box {
   padding: 26px;
   margin-bottom: 22px;
@@ -1418,9 +1471,7 @@ ul {
   line-height: 1.55;
 }
 
-/* --------------------------------------------------------------------------
-   18. CONTACT
-   -------------------------------------------------------------------------- */
+/* Contact */
 .contact-box-grid {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
@@ -1586,11 +1637,10 @@ ul {
   border-color: var(--surface-border-focus);
 }
 
-/* Zone de texte du formulaire agrandie (min-height: 110px) */
 .field-textarea {
   resize: vertical;
   height: 100%;
-  min-height: 110px; /* Agrandie */
+  min-height: 110px;
 }
 
 .form-feedback-msg {
@@ -1607,13 +1657,11 @@ ul {
   color: #f87171;
 }
 
-/* --------------------------------------------------------------------------
-   19. BOUTON REMONTER EN HAUT (DÉCALÉ UN PEU PLUS VERS LA GAUCHE)
-   -------------------------------------------------------------------------- */
+/* Bouton Remonter en haut */
 .back-to-top {
   position: fixed;
   bottom: 40px;
-  right: clamp(48px, 9vw, 110px); /* Décalé plus vers la gauche */
+  right: clamp(48px, 9vw, 110px);
   width: 48px;
   height: 48px;
   min-width: 48px;
@@ -1656,9 +1704,7 @@ ul {
   flex-shrink: 0;
 }
 
-/* --------------------------------------------------------------------------
-   20. FOOTER
-   -------------------------------------------------------------------------- */
+/* Footer */
 .site-footer {
   padding-block: 32px;
   background: transparent;
@@ -1679,9 +1725,7 @@ ul {
   font-size: 0.8rem;
 }
 
-/* --------------------------------------------------------------------------
-   21. RESPONSIVE DESIGN
-   -------------------------------------------------------------------------- */
+/* Responsive */
 @media (max-width: 1080px) {
   .sidebar-toggle {
     display: block;

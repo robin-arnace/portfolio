@@ -1,19 +1,10 @@
 /**
  * script.js — Portfolio BTS SIO SLAM
- * 
- * Rôle :
- * 1. Lueur souris & trame hexagonale interactive
- * 2. Gestion universelle et homogène des bordures et séparateurs (.glow-border-card)
- * 3. Bouton flottant "Remonter en haut" ciblant le sommet (#top)
- * 4. Apparition fluide au défilement (Scroll reveal) répétable
- * 5. Puce de progression de la barre latérale et navigation responsive
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --------------------------------------------------------------------------
-  // 1. LUEUR SOURIS & TRACE HEXAGONALE INTERACTIVE
-  // --------------------------------------------------------------------------
+  // 1. Lueur souris & trame hexagonale interactive
   const cursorGlow = document.getElementById('cursor-glow');
   const hexInteractive = document.getElementById('hex-bg-interactive');
 
@@ -43,9 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 2. CONTOURS & SÉPARATEURS RÉACTIFS STRICTEMENT HOMOGÈNES (.glow-border-card)
-  // --------------------------------------------------------------------------
+  // 2. Contours & séparateurs réactifs (.glow-border-card)
   const glowBorderCards = document.querySelectorAll('.glow-border-card');
 
   if (glowBorderCards.length > 0) {
@@ -69,9 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 3. REMONTÉE TOUT EN HAUT (BOUTON HAUT ET LIEN ACCUEIL / LOGO)
-  // --------------------------------------------------------------------------
+  // 3. Remontée en haut & liens Accueil (#top)
   const backToTopBtn = document.getElementById('back-to-top');
   const topLinks = document.querySelectorAll('a[href="#top"]');
 
@@ -95,9 +82,56 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --------------------------------------------------------------------------
-  // 4. APPARITION AU DÉFILEMENT (SCROLL REVEAL RÉPÉTABLE)
-  // --------------------------------------------------------------------------
+  // 4. Fenêtre modale (Popup) pour les projets professionnels
+  const modalBackdrop = document.getElementById('project-modal');
+  const modalCloseBtn = document.getElementById('project-modal-close');
+  const modalTitle = document.getElementById('modal-project-title');
+  const modalText = document.getElementById('modal-project-text');
+  const modalTriggers = document.querySelectorAll('.project-modal-trigger');
+
+  const openModal = (title, text) => {
+    if (modalBackdrop && modalTitle && modalText) {
+      modalTitle.textContent = title;
+      modalText.textContent = text;
+      modalBackdrop.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeModal = () => {
+    if (modalBackdrop) {
+      modalBackdrop.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  modalTriggers.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const title = btn.getAttribute('data-modal-title');
+      const text = btn.getAttribute('data-modal-text');
+      openModal(title, text);
+    });
+  });
+
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeModal);
+  }
+
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener('click', (e) => {
+      if (e.target === modalBackdrop) {
+        closeModal();
+      }
+    });
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // 5. Apparition au défilement (Scroll reveal répétable)
   const revealElements = document.querySelectorAll('.reveal-item');
 
   if ('IntersectionObserver' in window && revealElements.length > 0) {
@@ -120,9 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => el.classList.add('is-revealed'));
   }
 
-  // --------------------------------------------------------------------------
-  // 5. PARCOURS : FOCUS DE SURVOL CIBLÉ SUR LES CARTES
-  // --------------------------------------------------------------------------
+  // 6. Parcours : focus de survol ciblé sur les cartes
   const centerTimeline = document.getElementById('center-timeline');
   const timelineCards = document.querySelectorAll('.center-timeline .entry-card');
 
@@ -137,9 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 6. BARRE FLOTTANTE : SCROLLSPY & PUCE DE PROGRESSION
-  // --------------------------------------------------------------------------
+  // 7. Barre latérale : scrollspy & puce de progression
   const menuLinks = document.querySelectorAll('.menu-link');
   const sections = document.querySelectorAll('section[id]');
   const indicatorDot = document.getElementById('nav-indicator-dot');
@@ -181,9 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => sectionObserver.observe(section));
   }
 
-  // --------------------------------------------------------------------------
-  // 7. MENU MOBILE (BURGER)
-  // --------------------------------------------------------------------------
+  // 8. Menu mobile (burger)
   const sidebarToggle = document.getElementById('sidebar-toggle');
   const sidebar = document.getElementById('sidebar');
 
@@ -204,14 +232,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 8. FORMULAIRE DE CONTACT
-  // --------------------------------------------------------------------------
+  // 9. Formulaire de contact connecté à Formspree (via Fetch AJAX)
   const contactForm = document.getElementById('contact-form');
   const feedbackMsg = document.getElementById('form-feedback-msg');
 
   if (contactForm && feedbackMsg) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const btn = contactForm.querySelector('button[type="submit"]');
@@ -220,25 +246,40 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = true;
       btn.textContent = 'Transmission...';
 
-      setTimeout(() => {
-        feedbackMsg.className = 'form-feedback-msg success';
-        feedbackMsg.textContent = 'Message envoyé avec succès.';
-        
-        contactForm.reset();
+      try {
+        const response = await fetch(contactForm.action, {
+          method: contactForm.method,
+          body: new FormData(contactForm),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          feedbackMsg.className = 'form-feedback-msg success';
+          feedbackMsg.textContent = 'Message envoyé avec succès ! Je vous répondrai rapidement.';
+          contactForm.reset();
+        } else {
+          const data = await response.json();
+          feedbackMsg.className = 'form-feedback-msg error';
+          feedbackMsg.textContent = data.error || 'Une erreur est survenue lors de l\'envoi.';
+        }
+      } catch (error) {
+        feedbackMsg.className = 'form-feedback-msg error';
+        feedbackMsg.textContent = 'Erreur réseau. Vérifiez votre connexion.';
+      } finally {
         btn.disabled = false;
         btn.textContent = defaultText;
 
         setTimeout(() => {
           feedbackMsg.textContent = '';
           feedbackMsg.className = 'form-feedback-msg';
-        }, 5000);
-      }, 700);
+        }, 6000);
+      }
     });
   }
 
-  // --------------------------------------------------------------------------
-  // 9. ANNÉE DU FOOTER
-  // --------------------------------------------------------------------------
+  // 10. Année du footer
   const currentYearSpan = document.getElementById('current-year');
   if (currentYearSpan) {
     currentYearSpan.textContent = new Date().getFullYear();
