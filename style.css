@@ -91,7 +91,7 @@ ul {
   margin-inline: auto;
 }
 
-/* Bandeaux supérieur & inférieur harmonisés */
+/* Bandeaux supérieur & inférieur */
 .top-announcement-bar,
 .site-footer {
   width: 100%;
@@ -1274,7 +1274,7 @@ ul {
 }
 
 /* ==========================================================================
-   FENÊTRE MODALE (POPUP CENTRÉ) POUR LES PROJETS PROFESSIONNELS
+   FENÊTRE MODALE (POPUP) POUR LES PROJETS PROFESSIONNELS
    ========================================================================== */
 .project-modal-backdrop {
   position: fixed;
