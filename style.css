@@ -100,6 +100,7 @@ ul {
   position: relative;
   z-index: 10;
   font-size: 0.84rem;
+  padding-left: 0;
 }
 
 .top-bar-inner,
@@ -218,9 +219,13 @@ ul {
 }
 
 .section-divider.glow-border-card {
-  width: min(90%, var(--content-max-width));
+  width: 100%;
+  max-width: min(var(--content-max-width), calc(100% - (var(--sidebar-width) + (var(--sidebar-offset) * 2)) - 32px));
   height: 1.5px;
-  margin: 0 auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: auto;
+  margin-left: max(calc((100% - var(--content-max-width)) / 2), calc(var(--sidebar-width) + (var(--sidebar-offset) * 2)));
   padding: 0;
   border-radius: 999px;
   background-color: var(--surface-border);
@@ -306,14 +311,22 @@ ul {
   z-index: 100;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .sidebar-inner {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
-  padding: 24px 14px;
-  gap: 28px;
+  padding: 22px 14px;
+  gap: clamp(14px, 2.5vh, 28px);
 }
 
 .sidebar-brand {
@@ -384,7 +397,7 @@ ul {
 .sidebar-menu {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: clamp(8px, 1.8vh, 15px);
   padding-left: 16px;
   width: 100%;
 }
@@ -452,7 +465,7 @@ ul {
   top: 16px;
   left: 16px;
   z-index: 200;
-  background-color: var(--bg-dark-1);
+  background-color: rgba(13, 21, 17, 0.9);
   border: 1px solid var(--surface-border);
   border-radius: 6px;
   padding: 8px;
@@ -481,9 +494,10 @@ ul {
 }
 
 .container-inner {
-  width: 90%;
-  max-width: var(--content-max-width);
-  margin-inline: auto;
+  width: 100%;
+  max-width: min(var(--content-max-width), calc(100% - (var(--sidebar-width) + (var(--sidebar-offset) * 2)) - 32px));
+  margin-right: auto;
+  margin-left: max(calc((100% - var(--content-max-width)) / 2), calc(var(--sidebar-width) + (var(--sidebar-offset) * 2)));
   padding-inline: 16px;
   position: relative;
   z-index: 3;
@@ -1273,9 +1287,7 @@ ul {
   border-top: 1px solid var(--surface-border);
 }
 
-/* ==========================================================================
-   FENÊTRE MODALE (POPUP) POUR LES PROJETS PROFESSIONNELS
-   ========================================================================== */
+/* Fenêtre modale */
 .project-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -1708,27 +1720,6 @@ ul {
   flex-shrink: 0;
 }
 
-/* Footer */
-.site-footer {
-  padding-block: 32px;
-  background: transparent;
-  font-size: 0.8rem;
-  position: relative;
-  z-index: 3;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer-text-wrapper p {
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-}
-
 /* Responsive */
 @media (max-width: 1080px) {
   .sidebar-toggle {
@@ -1753,6 +1744,24 @@ ul {
 
   .sidebar.is-open {
     transform: translateX(0);
+  }
+
+  .content-wrapper,
+  .top-announcement-bar {
+    padding-left: 0;
+  }
+
+  .container-inner {
+    width: 90%;
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    margin-left: auto;
+  }
+
+  .section-divider.glow-border-card {
+    width: min(90%, var(--content-max-width));
+    margin-inline: auto;
+    margin-left: auto;
   }
 
   .hero-layout {
