@@ -1460,10 +1460,19 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 18px;
+  align-items: stretch; /* Force l'étirement des cartes sur la même ligne */
 }
 
 .news-card {
-  padding: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.news-content {
+  flex-grow: 1; /* Permet au texte d'occuper l'espace disponible pour pousser le bouton */
 }
 
 .news-date {
@@ -1479,12 +1488,20 @@ ul {
   font-weight: 600;
   color: var(--text-white);
   margin-bottom: 8px;
+  line-height: 1.4;
 }
 
 .news-summary {
   font-size: 0.84rem;
   color: var(--text-secondary);
   line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+.news-card .project-links {
+  margin-top: auto; /* Aligne proprement le bouton tout en bas */
+  padding-top: 12px;
+  border-top: 1px solid rgba(245, 239, 230, 0.05);
 }
 
 /* Contact */
